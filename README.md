@@ -2,7 +2,7 @@
 
 **Plugin Version**: 1.0.0
 
-**Asphyxia CORE Version**: [1.60b]([Release v1.60b · asphyxia-core/core](https://github.com/asphyxia-core/core/releases/tag/v1.60b))
+**Asphyxia CORE Version**: [1.60b](https://github.com/asphyxia-core/core/releases/tag/v1.60b)
 
 **Note**: Use latest spice2x, must newer than [25-05-09](https://github.com/spice2x/spice2x.github.io/releases/tag/25-05-09)
 
@@ -11,8 +11,6 @@
 [**Cammy**](https://x.com/TheMusecaGuy)
 
 [**Trmazi**](https://iidxfan.xyz/)
-
-
 
 ## Changelog
 
