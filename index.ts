@@ -84,4 +84,7 @@ export function register() {
   R.Route("playerdata.usergamedata_condrecv", usergamedata_condrecv);
 
   R.WebUIEvent("updateProfile", updateProfile);
+
+  console.log('Plugin Registered');
+  console.log(`Asphyxia CORE Version: v${CORE_VERSION_MAJOR}.${CORE_VERSION_MINOR}`);
 }

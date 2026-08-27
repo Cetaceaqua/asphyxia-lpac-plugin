@@ -12,6 +12,8 @@
 
 - [**Trmazi**](https://iidxfan.xyz/)
 
+Check out **PhaseII eAmusement Network** on [#bemaniso](https://bemaniso.ws/forums.php?action=viewthread&threadid=53789)!
+
 ## Changelog
 
 ### 1.0.0
