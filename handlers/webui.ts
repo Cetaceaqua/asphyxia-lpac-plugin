@@ -1,4 +1,5 @@
 import { Profile } from "../models/profile";
+import { validateReadingId } from "./reading_id";
 
 const BIRTH_MONTH_CODES: Record<string, string> = {
   "01": "1",
@@ -85,6 +86,7 @@ export const updateProfile = async (data: {
   const birthdayBloodType = `${birthMonthHex}${birthDayHex}${bloodTypeHex}`;
   const girlfriendId = GIRLFRIEND_IDS[data.girlfriend] || "";
   const userAgreement = USER_AGREEMENT_IDS[data.user_agreement_status] || "";
+  const readingId = await validateReadingId(data.reading);
   const profile = await DB.FindOne<Profile>(data.refid, { collection: "profile" });
   const lpac00 = profile?.usergamedata?.LPAC00;
   const lpac01 = profile?.usergamedata?.LPAC01;
@@ -137,7 +139,7 @@ export const updateProfile = async (data: {
     {
       $set: {
         "usergamedata.LPAC00.strdata.3": userAgreement,
-        "usergamedata.LPAC00.strdata.4": data.reading,
+        "usergamedata.LPAC00.strdata.4": readingId,
         "usergamedata.LPAC00.strdata.5": birthdayBloodType,
         "usergamedata.LPAC00.strdata.6": girlfriendId,
         "usergamedata.LPAC00.strdata.27": data.name,

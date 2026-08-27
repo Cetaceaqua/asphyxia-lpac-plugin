@@ -3,6 +3,7 @@
 -
     const playerName = profile.usergamedata["LPAC00"]["strdata"][27];
     const playerReading = profile.usergamedata["LPAC00"]["strdata"][4];
+    const playerReadingKana = '';
     const lpac00Strdata = profile.usergamedata["LPAC00"]["strdata"].join(",");
     const lpac01Strdata = profile.usergamedata["LPAC01"]["strdata"].join(",");
 
@@ -139,7 +140,7 @@ div
                         label.label Reading
                         .control
                             input.input(type="text" id="reading" name="reading", value=playerReading)
-                        p.help.is-danger Readings have not yet been fully researched. Please use Reading IDs that are confirmed to be available.
+                        p#reading-kana.help(class=playerReadingKana ? "" : "is-danger")= "Current Reading: " + (playerReadingKana || "Unknown Reading ID")  
 
                     .field
                         label.label Girlfriend
@@ -228,4 +229,5 @@ div
                         .control
                             textarea.textarea.is-family-monospace(rows="8" readonly)= lpac01BindataText
 
+script.
 script(src="static/js/profile_detail.js")

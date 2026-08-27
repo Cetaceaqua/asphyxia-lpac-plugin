@@ -1,4 +1,33 @@
 $(document).ready(function () {
+  let readingIdText = {};
+
+  const normalizeReadingId = (readingId) =>
+    `0x${String(readingId || "")
+      .trim()
+      .toLowerCase()
+      .replace(/^0x/, "")}`;
+
+  const getReadingKana = (readingId) =>
+    readingIdText[normalizeReadingId(readingId)] || "";
+
+  function updateReadingKana() {
+    const kana = getReadingKana($("#reading").val());
+    $("#reading-kana")
+      .text("Current Reading: " + (kana || "Unknown Reading ID")  )
+      .toggleClass("is-danger", !kana);
+  }
+
+  fetch("static/data/reading_id_text.json")
+    .then((response) => (response.ok ? response.json() : {}))
+    .then((data) => {
+      readingIdText = data;
+      updateReadingKana();
+    })
+    .catch(() => updateReadingKana());
+
+  $("#reading").on("input change", updateReadingKana);
+  updateReadingKana();
+
   const toFullWidth = (value) =>
     value.replace(/[!-~]/g, (character) =>
       String.fromCharCode(character.charCodeAt(0) + 0xfee0)
@@ -69,6 +98,7 @@ $(document).ready(function () {
     const bloodType = document.getElementById("blood-type").value;
     const girlfriend = document.getElementById("girlfriend").value;
     const userAgreement = document.getElementById("user-agreement").value;
+    const reading = $("#reading").val();
     const minigameLevels = {};
     $(".minigame-level").each(function () {
       minigameLevels[String($(this).data("slot"))] = $(this).val();
@@ -78,9 +108,10 @@ $(document).ready(function () {
       !birthDay ||
       !bloodType ||
       !girlfriend ||
-      !userAgreement
+      !userAgreement ||
+      !getReadingKana(reading)
     ) {
-      alert("Please complete all profile fields before saving.");
+      alert("Please complete all profile fields and enter a valid reading ID before saving.");
       return;
     }
 
@@ -90,7 +121,7 @@ $(document).ready(function () {
       birthday: `${$("#birth-month").val()},${$("#birth-day").val()}`,
       blood_type: $("#blood-type").val(),
       girlfriend: $("#girlfriend").val(),
-      reading: $("#reading").val(),
+      reading: reading,
       user_agreement_status: $("#user-agreement").val(),
       date_level: $("#date-level").val(),
       date_level_exp: $("#date-level-exp").val(),
