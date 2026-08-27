@@ -53,10 +53,10 @@
     }
 
     const lpac00Bindata = profile.usergamedata["LPAC00"]["bindata"];
-    const lpac00BindataText = JSON.stringify(lpac00Bindata);
+    const lpac00BindataText = lpac00Bindata.join(",");
     const bindataLevel = (offset) => lpac00Bindata[offset] ?? 1;
     const lpac01Bindata = profile.usergamedata["LPAC01"]["bindata"];
-    const lpac01BindataText = JSON.stringify(lpac01Bindata);
+    const lpac01BindataText = lpac01Bindata.join(",");
     const dateLevel = lpac01Bindata[28] ?? 1;
     const dateLevelExp = ((lpac01Bindata[29] ?? 0) << 8) | (lpac01Bindata[30] ?? 0);
     const minigamePermitFlags = (
@@ -178,12 +178,13 @@ div
                         p.help Maximum Date Level Exp: 150.
 
                     .field
-                        label.label Minigame Unlocks
+                        label.label Minigame Unlock Status
                         each unlock in minigameUnlocks
                             .control
                                 label.checkbox
-                                    input.minigame-unlock(type="checkbox" id='unlock-' + unlock.id data-unlock=unlock.id data-unlock-level=unlock.level checked=isMinigameUnlocked(unlock))
+                                    input.minigame-unlock(type="checkbox" id='unlock-' + unlock.id data-unlock-level=unlock.level checked=isMinigameUnlocked(unlock) disabled)
                                     |  #{unlock.name} (Date Level #{unlock.level})
+                        p.help The unlock status of Darts, Soap Bubbles and Spit is automatically synchronized with changes to your Date Level.
 
                     .field
                         label.label Minigame Levels
@@ -195,9 +196,8 @@ div
                                     label.label.is-small= minigameLabel
                                     .control
                                         input.input.minigame-level(type="number" id=minigameId min="1" max="50" data-slot=index value=bindataLevel(44 + index))
-                        p.help The unlock status of Darts, Soap Bubbles and Spit is automatically synchronized with changes to your Date Level.
 
-                .field
+                .field(style="margin-top: 1.5rem")
                     button.button.is-primary#submit-button(type="button") 
                         span.icon
                             i.mdi.mdi-check

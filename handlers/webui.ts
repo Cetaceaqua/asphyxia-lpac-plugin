@@ -48,12 +48,9 @@ const DATE_LEVEL_MINIGAME_PERMITS = [
   { level: 1, permitIndex: 3 },
   { level: 1, permitIndex: 7 },
   { level: 1, permitIndex: 11 },
-] as const;
-
-const EDITABLE_MINIGAME_UNLOCKS = [
-  { id: "darts", level: 3, index: 5 },
-  { id: "soap_bubbles", level: 12, index: 6 },
-  { id: "spit", level: 17, index: 8 },
+  { level: 3, permitIndex: 5 },
+  { level: 12, permitIndex: 6 },
+  { level: 17, permitIndex: 8 },
 ] as const;
 
 const parseBoundedInteger = (
@@ -69,9 +66,6 @@ const parseBoundedInteger = (
   return parsed;
 };
 
-const parseBoolean = (value: string | boolean | undefined) =>
-  value === true || value === "true" || value === "1" || value === "on";
-
 export const updateProfile = async (data: {
   refid: string;
   name: string;
@@ -83,7 +77,6 @@ export const updateProfile = async (data: {
   date_level: string | number;
   date_level_exp: string | number;
   minigame_levels: Record<string, string | number>;
-  minigame_unlocks?: Record<string, string | boolean | undefined>;
 }) => {
   const [birthMonth, birthDay] = data.birthday.split(",");
   const birthMonthHex = BIRTH_MONTH_CODES[birthMonth];
@@ -112,8 +105,6 @@ export const updateProfile = async (data: {
 
   const lpac01Bindata = Buffer.from(lpac01.bindata);
 
-  const requestedMinigameUnlocks = data.minigame_unlocks ?? {};
-
   if (lpac00Bindata.length < MINIGAME_PERMIT_OFFSET + 4) {
     throw new Error("LPAC00 bindata is too short");
   }
@@ -122,17 +113,8 @@ export const updateProfile = async (data: {
   for (const release of DATE_LEVEL_MINIGAME_PERMITS) {
     if (dateLevel >= release.level) {
       minigamePermitFlags |= 1 << release.permitIndex;
-    }
-  }
-
-  for (const unlock of EDITABLE_MINIGAME_UNLOCKS) {
-    const requested = requestedMinigameUnlocks[unlock.id];
-    const currentlyEnabled = (minigamePermitFlags & (1 << unlock.index)) !== 0;
-    const enabled = requested !== undefined ? parseBoolean(requested) : currentlyEnabled || dateLevel >= unlock.level;
-    if (enabled) {
-      minigamePermitFlags |= 1 << unlock.index;
     } else {
-      minigamePermitFlags &= ~(1 << unlock.index);
+      minigamePermitFlags &= ~(1 << release.permitIndex);
     }
   }
   lpac00Bindata.writeUInt32BE(minigamePermitFlags, MINIGAME_PERMIT_OFFSET);

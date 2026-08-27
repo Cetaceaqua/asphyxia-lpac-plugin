@@ -73,11 +73,6 @@ $(document).ready(function () {
     $(".minigame-level").each(function () {
       minigameLevels[String($(this).data("slot"))] = $(this).val();
     });
-    const minigameUnlocks = {};
-    $(".minigame-unlock").each(function () {
-      minigameUnlocks[String($(this).data("unlock"))] = $(this).is(":checked");
-    });
-
     if (
       !birthMonth ||
       !birthDay ||
@@ -100,7 +95,6 @@ $(document).ready(function () {
       date_level: $("#date-level").val(),
       date_level_exp: $("#date-level-exp").val(),
       minigame_levels: minigameLevels,
-      minigame_unlocks: minigameUnlocks,
     };
     emit("updateProfile", data).then(() => location.reload());
   });
