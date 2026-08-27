@@ -1,6 +1,15 @@
 $(document).ready(function () {
-  const birthMonth = $("#birth-month").data("default");
-  const birthDay = $("#birth-day").data("default");
+  const toFullWidth = (value) =>
+    value.replace(/[!-~]/g, (character) =>
+      String.fromCharCode(character.charCodeAt(0) + 0xfee0)
+    );
+
+  $("#fullwidth-name-button").on("click", function () {
+    const nameInput = $("#name");
+    nameInput.val(toFullWidth(String(nameInput.val() || "")));
+  });
+
+  const birthMonth = $("#birth-month").val();
 
   updateDayOptions(birthMonth);
 
@@ -8,6 +17,25 @@ $(document).ready(function () {
     const selectedMonth = $(this).val();
     updateDayOptions(selectedMonth);
   });
+
+  function syncMinigameUnlocks(dateLevelValue) {
+    const dateLevel = Number(dateLevelValue);
+    if (!Number.isInteger(dateLevel)) {
+      return;
+    }
+
+    $(".minigame-unlock").each(function () {
+      $(this).prop(
+        "checked",
+        dateLevel >= Number($(this).data("unlock-level"))
+      );
+    });
+  }
+
+  $("#date-level").on("input change", function () {
+    syncMinigameUnlocks($(this).val());
+  });
+  syncMinigameUnlocks($("#date-level").val());
 
   function updateDayOptions(monthValue) {
     const daySelect = $("#birth-day");
@@ -41,6 +69,14 @@ $(document).ready(function () {
     const bloodType = document.getElementById("blood-type").value;
     const girlfriend = document.getElementById("girlfriend").value;
     const userAgreement = document.getElementById("user-agreement").value;
+    const minigameLevels = {};
+    $(".minigame-level").each(function () {
+      minigameLevels[String($(this).data("slot"))] = $(this).val();
+    });
+    const minigameUnlocks = {};
+    $(".minigame-unlock").each(function () {
+      minigameUnlocks[String($(this).data("unlock"))] = $(this).is(":checked");
+    });
 
     if (
       !birthMonth ||
@@ -50,7 +86,6 @@ $(document).ready(function () {
       !userAgreement
     ) {
       alert("Please complete all profile fields before saving.");
-      location.reload();
       return;
     }
 
@@ -60,8 +95,12 @@ $(document).ready(function () {
       birthday: `${$("#birth-month").val()},${$("#birth-day").val()}`,
       blood_type: $("#blood-type").val(),
       girlfriend: $("#girlfriend").val(),
-      pronunciation: $("#pronunciation").val(),
+      reading: $("#reading").val(),
       user_agreement_status: $("#user-agreement").val(),
+      date_level: $("#date-level").val(),
+      date_level_exp: $("#date-level-exp").val(),
+      minigame_levels: minigameLevels,
+      minigame_unlocks: minigameUnlocks,
     };
     emit("updateProfile", data).then(() => location.reload());
   });

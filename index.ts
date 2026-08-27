@@ -14,14 +14,14 @@ export function register() {
 
   R.Config("enable_medal_collab", {
     name: "Love Plus MEDAL Collab",
-    desc: "Enable collabration with Love Plus MEDAL Happy Daily Life. (FLAG_0[4])",
+    desc: "Enable collaboration with Love Plus MEDAL Happy Daily Life. (FLAG_0[4])",
     type: "boolean",
     default: false,
   });
 
   R.Config("enable_3ds_collab", {
     name: "NEW Love Plus Collab",
-    desc: "Enable collabration with NEW Love Plus on Nintendo 3DS. (FLAG_0[5] / FLAG_0[6])",
+    desc: "Enable collaboration with NEW Love Plus on Nintendo 3DS. (FLAG_0[5] / FLAG_0[6])",
     type: "boolean",
     default: false,
   });
@@ -45,12 +45,12 @@ export function register() {
     name: "KONAMI Announcement 1",
     desc: "Text returned for the first KONAMI announcement page. Leave blank to disable. (KONAMI_0)",
     type: "string",
-    default: "Services provided by Asphyxia CORE",
+    default: "You are playing on Asphyxia CORE.",
   });
 
   R.Config("announcement_text_1", {
     name: "KONAMI Announcement 2",
-    desc: "Text returned for the second KONAMI announcement page. Leave blank to disable.",
+    desc: "Text returned for the second KONAMI announcement page. Leave blank to disable. (KONAMI_1)",
     type: "string",
     default: "",
   });

@@ -4,13 +4,13 @@
 
 **Asphyxia CORE Version**: [1.60b](https://github.com/asphyxia-core/core/releases/tag/v1.60b)
 
-**Note**: Use latest spice2x, must newer than [25-05-09](https://github.com/spice2x/spice2x.github.io/releases/tag/25-05-09)
+**Note**: Use latest spice2x, newer than [25-05-09](https://github.com/spice2x/spice2x.github.io/releases/tag/25-05-09)
 
 ## Credits
 
-[**Cammy**](https://x.com/TheMusecaGuy)
+- [**Cammy**](https://x.com/TheMusecaGuy)
 
-[**Trmazi**](https://iidxfan.xyz/)
+- [**Trmazi**](https://iidxfan.xyz/)
 
 ## Changelog
 

@@ -2,7 +2,7 @@
     profile: DB.FindOne(refid, { collection: 'profile' })
 -
     const playerName = profile.usergamedata["LPAC00"]["strdata"][27];
-    const playerPronunciation = profile.usergamedata["LPAC00"]["strdata"][4];
+    const playerReading = profile.usergamedata["LPAC00"]["strdata"][4];
 
     const birthdayBloodType = profile.usergamedata["LPAC00"]["strdata"][5];
     const birthMonthHex = birthdayBloodType[0];
@@ -50,6 +50,47 @@
             break;
     }
 
+    const toByteArray = (bindata) => {
+        if (Array.isArray(bindata)) return bindata;
+        if (bindata && Array.isArray(bindata.data)) return bindata.data;
+        if (bindata && bindata.buffer instanceof Uint8Array) return Array.from(bindata.buffer);
+        if (bindata && bindata.buffer instanceof ArrayBuffer) return Array.from(new Uint8Array(bindata.buffer));
+        if (bindata && typeof bindata.length === 'number') return Array.from(bindata);
+        return Object.keys(bindata || {})
+            .filter(key => /^\d+$/.test(key))
+            .sort((left, right) => Number(left) - Number(right))
+            .map(key => Number(bindata[key]));
+    };
+    const lpac00Bindata = toByteArray(profile.usergamedata["LPAC00"]["bindata"]);
+    const bindataLevel = (offset) => lpac00Bindata[offset] ?? 1;
+    const lpac01Bindata = toByteArray(profile.usergamedata["LPAC01"]["bindata"]);
+    const dateLevel = lpac01Bindata[28] ?? 1;
+    const dateLevelExp = ((lpac01Bindata[29] ?? 0) << 8) | (lpac01Bindata[30] ?? 0);
+    const minigamePermitFlags = (
+        ((lpac00Bindata[0] ?? 0) << 24) |
+        ((lpac00Bindata[1] ?? 0) << 16) |
+        ((lpac00Bindata[2] ?? 0) << 8) |
+        (lpac00Bindata[3] ?? 0)
+    ) >>> 0;
+    const isMinigamePermitUnlocked = (index) => (minigamePermitFlags & (1 << index)) !== 0;
+    const minigameNames = {
+        1: 'Red Light, Green Light (だるまさんがころんだ)',
+        2: 'Not 30 (ノット３０)',
+        3: 'Watermelon Smash (すいか割り)',
+        5: 'Darts (ダーツ)',
+        6: 'Soap Bubbles (しゃぼんだま)',
+        7: 'Hit, Cover, Rock, Paper, Scissors (叩いてかぶってジャンケンポン)',
+        8: 'Spit (スピード)',
+        11: 'Silhouette Quiz (シルエットクイズ)'
+    };
+    const knownMinigameIndices = [1, 2, 3, 5, 6, 7, 8, 11];
+    const minigameUnlocks = [
+        { id: 'darts', name: 'Darts', level: 3, index: 5 },
+        { id: 'soap_bubbles', name: 'Soap Bubbles', level: 12, index: 6 },
+        { id: 'spit', name: 'Spit', level: 17, index: 8 }
+    ];
+    const isMinigameUnlocked = (unlock) => isMinigamePermitUnlocked(unlock.index);
+
 div
     .card
         .card-header
@@ -59,63 +100,109 @@ div
                 | Player Profile
         .card-content
             form
-                .field
-                    label.label Reference ID
-                    .control
-                        input.input(type="text" id="refid" name="refid", value=refid readonly)
+                .profile-data-section
+                    h2.title.is-5 Player Information (strdata)
 
-                .field
-                    label.label Name
-                    .control
-                        input.input(type="text" id="name" name="name", value=playerName)
+                    .field
+                        label.label Reference ID
+                        .control
+                            input.input(type="text" id="refid" name="refid", value=refid readonly)
 
-                .field
-                    label.label Birthday
-                    .control
-                        .select
-                            select#birth-month(name="birth_month")
-                                option(value="") Select Birth Month
-                                each month in ["01","02","03","04","05","06","07","08","09","10","11","12"]
-                                    option(value=month selected=(birthMonth === month)) #{month}
-                        .select
-                            select#birth-day(name="birth_day", data-default=birthDay)
-                                option(value="") Select Birth Day
-                                each day in [...Array(31).keys()].map(d => String(d+1).padStart(2, '0'))
-                                    option(value=day selected=(birthDay === day)) #{day}
+                    .field
+                        label.label Name
+                        .field.has-addons
+                            .control.is-expanded
+                                input.input(type="text" id="name" name="name", value=playerName)
+                            .control
+                                button.button.is-light#fullwidth-name-button(type="button" title="Convert ASCII characters to full-width")
+                                    span.icon
+                                        i.mdi.mdi-format-letter-case
+                                    span Full-width
 
-                .field
-                    label.label Blood Type
-                    .control
-                        .select
-                            select#blood-type(name="blood_type")
-                                option(value="") Select Blood Type
-                                each bloodTypeOption in ["A", "B", "O", "AB"]
-                                    option(value=bloodTypeOption selected=(bloodType === bloodTypeOption)) #{bloodTypeOption}
+                    .field
+                        label.label Birthday
+                        .control
+                            .select
+                                select#birth-month(name="birth_month")
+                                    option(value="") Select Birth Month
+                                    each month in ["01","02","03","04","05","06","07","08","09","10","11","12"]
+                                        option(value=month selected=(birthMonth === month)) #{month}
+                            .select
+                                select#birth-day(name="birth_day", data-default=birthDay)
+                                    option(value="") Select Birth Day
+                                    each day in [...Array(31).keys()].map(d => String(d+1).padStart(2, '0'))
+                                        option(value=day selected=(birthDay === day)) #{day}
 
-                .field
-                    label.label Pronunciation
-                    .control
-                        input.input(type="text" id="pronunciation" name="pronunciation", value=playerPronunciation)
-                    p.help.is-danger Pronunciation format is not fully documented. Verify the value in-game after saving.
+                    .field
+                        label.label Blood Type
+                        .control
+                            .select
+                                select#blood-type(name="blood_type")
+                                    option(value="") Select Blood Type
+                                    each bloodTypeOption in ["A", "B", "O", "AB"]
+                                        option(value=bloodTypeOption selected=(bloodType === bloodTypeOption)) #{bloodTypeOption}
 
-                .field
-                    label.label Girlfriend
-                    .control
-                        .select
-                            select#girlfriend(name="girlfriend")
-                                option(value="") Select Girlfriend
-                                each girlfriendOption in ["Manaka", "Rinko", "Nene"]
-                                    option(value=girlfriendOption selected=(selectedGirlfriend === girlfriendOption)) #{girlfriendOption}
+                    .field
+                        label.label Reading
+                        .control
+                            input.input(type="text" id="reading" name="reading", value=playerReading)
+                        p.help.is-danger Readings have not yet been fully researched. Please use Reading IDs that are confirmed to be available.
 
-                .field
-                    label.label User Agreement Status
-                    .control
-                        .select
-                            select#user-agreement(name="user_agreement")
-                                option(value="") Select Agreement Status
-                                each agreementStatus in ["Not Agreed", "Agreed"]
-                                    option(value=agreementStatus selected=(userAgreementStatus === agreementStatus)) #{agreementStatus}
-                    p.help.is-danger If you do not agree, the game will ask you to enter your player information again.
+                    .field
+                        label.label Girlfriend
+                        .control
+                            .select
+                                select#girlfriend(name="girlfriend")
+                                    option(value="") Select Girlfriend
+                                    each girlfriendOption in ["Manaka", "Rinko", "Nene"]
+                                        option(value=girlfriendOption selected=(selectedGirlfriend === girlfriendOption)) #{girlfriendOption}
+
+                    .field
+                        label.label User Agreement Status
+                        .control
+                            .select
+                                select#user-agreement(name="user_agreement")
+                                    option(value="") Select Agreement Status
+                                    each agreementStatus in ["Not Agreed", "Agreed"]
+                                        option(value=agreementStatus selected=(userAgreementStatus === agreementStatus)) #{agreementStatus}
+                        p.help.is-danger If you have not agreed to the User Agreement, the game will require you to re-enter all information.
+
+                hr
+
+                .profile-data-section
+                    h2.title.is-5 Player Data (bindata)
+
+                    .field
+                        label.label Date Level
+                        .control
+                            input.input(type="number" id="date-level" name="date_level" min="0" max="50" value=dateLevel)
+                        p.help Maximum Date Level: 50.
+
+                    .field
+                        label.label Date Level Exp
+                        .control
+                            input.input(type="number" id="date-level-exp" name="date_level_exp" min="0" max="150" value=dateLevelExp)
+                        p.help Maximum Date Level Exp: 150.
+
+                    .field
+                        label.label Minigame Unlocks
+                        each unlock in minigameUnlocks
+                            .control
+                                label.checkbox
+                                    input.minigame-unlock(type="checkbox" id='unlock-' + unlock.id data-unlock=unlock.id data-unlock-level=unlock.level checked=isMinigameUnlocked(unlock))
+                                    |  #{unlock.name} (Date Level #{unlock.level})
+
+                    .field
+                        label.label Minigame Levels
+                        .columns.is-multiline
+                            each index in knownMinigameIndices
+                                - const minigameLabel = minigameNames[index]
+                                - const minigameId = 'level-minigame-' + index
+                                .column.is-half
+                                    label.label.is-small= minigameLabel
+                                    .control
+                                        input.input.minigame-level(type="number" id=minigameId min="1" max="50" data-slot=index value=bindataLevel(44 + index))
+                        p.help The unlock status of Darts, Soap Bubbles and Spit is automatically synchronized with changes to your Date Level.
 
                 .field
                     button.button.is-primary#submit-button(type="button") 
