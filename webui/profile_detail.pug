@@ -3,6 +3,8 @@
 -
     const playerName = profile.usergamedata["LPAC00"]["strdata"][27];
     const playerReading = profile.usergamedata["LPAC00"]["strdata"][4];
+    const lpac00Strdata = profile.usergamedata["LPAC00"]["strdata"].join(",");
+    const lpac01Strdata = profile.usergamedata["LPAC01"]["strdata"].join(",");
 
     const birthdayBloodType = profile.usergamedata["LPAC00"]["strdata"][5];
     const birthMonthHex = birthdayBloodType[0];
@@ -50,20 +52,11 @@
             break;
     }
 
-    const toByteArray = (bindata) => {
-        if (Array.isArray(bindata)) return bindata;
-        if (bindata && Array.isArray(bindata.data)) return bindata.data;
-        if (bindata && bindata.buffer instanceof Uint8Array) return Array.from(bindata.buffer);
-        if (bindata && bindata.buffer instanceof ArrayBuffer) return Array.from(new Uint8Array(bindata.buffer));
-        if (bindata && typeof bindata.length === 'number') return Array.from(bindata);
-        return Object.keys(bindata || {})
-            .filter(key => /^\d+$/.test(key))
-            .sort((left, right) => Number(left) - Number(right))
-            .map(key => Number(bindata[key]));
-    };
-    const lpac00Bindata = toByteArray(profile.usergamedata["LPAC00"]["bindata"]);
+    const lpac00Bindata = profile.usergamedata["LPAC00"]["bindata"];
+    const lpac00BindataText = JSON.stringify(lpac00Bindata);
     const bindataLevel = (offset) => lpac00Bindata[offset] ?? 1;
-    const lpac01Bindata = toByteArray(profile.usergamedata["LPAC01"]["bindata"]);
+    const lpac01Bindata = profile.usergamedata["LPAC01"]["bindata"];
+    const lpac01BindataText = JSON.stringify(lpac01Bindata);
     const dateLevel = lpac01Bindata[28] ?? 1;
     const dateLevelExp = ((lpac01Bindata[29] ?? 0) << 8) | (lpac01Bindata[30] ?? 0);
     const minigamePermitFlags = (
@@ -209,5 +202,30 @@ div
                         span.icon
                             i.mdi.mdi-check
                         span Save Profile
+
+                hr
+
+                .profile-data-section
+                    h2.title.is-5 Raw Profile Data
+
+                    .field
+                        label.label LPAC00 strdata
+                        .control
+                            textarea.textarea.is-family-monospace(rows="8" readonly)= lpac00Strdata
+
+                    .field
+                        label.label LPAC01 strdata
+                        .control
+                            textarea.textarea.is-family-monospace(rows="8" readonly)= lpac01Strdata
+
+                    .field
+                        label.label LPAC00 bindata
+                        .control
+                            textarea.textarea.is-family-monospace(rows="8" readonly)= lpac00BindataText
+
+                    .field
+                        label.label LPAC01 bindata
+                        .control
+                            textarea.textarea.is-family-monospace(rows="8" readonly)= lpac01BindataText
 
 script(src="static/js/profile_detail.js")

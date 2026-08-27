@@ -28,7 +28,7 @@ export const usergamedata_recv: EPR = async (info, data, send) => {
         ),
         bin1: K.ITEM(
           "str",
-          Buffer.from(Object.values(savedData.bindata)).toString("base64")
+          Buffer.from(savedData.bindata).toString("base64")
         ),
       });
       recordCount++;

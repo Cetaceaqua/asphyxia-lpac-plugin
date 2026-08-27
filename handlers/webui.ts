@@ -104,13 +104,13 @@ export const updateProfile = async (data: {
     throw new Error("LPAC01 profile data is missing");
   }
 
-  const lpac00Bindata = Buffer.from(Object.values(lpac00.bindata));
+  const lpac00Bindata = Buffer.from(lpac00.bindata);
 
   const dateLevel = parseBoundedInteger(data.date_level, "Date Level", 0, DATE_LEVEL_MAX);
 
   const dateLevelExp = parseBoundedInteger(data.date_level_exp, "Date Level Exp", 0, DATE_LEVEL_EXP_MAX);
 
-  const lpac01Bindata = Buffer.from(Object.values(lpac01.bindata));
+  const lpac01Bindata = Buffer.from(lpac01.bindata);
 
   const requestedMinigameUnlocks = data.minigame_unlocks ?? {};
 
@@ -159,8 +159,8 @@ export const updateProfile = async (data: {
         "usergamedata.LPAC00.strdata.5": birthdayBloodType,
         "usergamedata.LPAC00.strdata.6": girlfriendId,
         "usergamedata.LPAC00.strdata.27": data.name,
-        "usergamedata.LPAC00.bindata": lpac00Bindata,
-        "usergamedata.LPAC01.bindata": lpac01Bindata,
+        "usergamedata.LPAC00.bindata": Array.from(lpac00Bindata),
+        "usergamedata.LPAC01.bindata": Array.from(lpac01Bindata),
       },
     }
   );

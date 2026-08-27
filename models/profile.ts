@@ -4,7 +4,7 @@ export interface Profile {
   usergamedata?: {
     [type: string]: {
       strdata: string[];
-      bindata: Buffer;
+      bindata: number[];
     };
   };
 }

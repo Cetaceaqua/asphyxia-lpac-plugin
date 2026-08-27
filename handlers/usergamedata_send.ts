@@ -32,7 +32,7 @@ export const usergamedata_send: EPR = async (info, data, send) => {
 
     profile.usergamedata[dataType] = {
       strdata: strData,
-      bindata: decodedBin,
+      bindata: Array.from(decodedBin),
     };
   }
 
