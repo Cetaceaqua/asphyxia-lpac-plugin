@@ -126,6 +126,7 @@ $(document).ready(function () {
       date_level: $("#date-level").val(),
       date_level_exp: $("#date-level-exp").val(),
       minigame_levels: minigameLevels,
+      unlock_all_dresses: $("#unlock-all-dresses").is(":checked"),
     };
     emit("updateProfile", data).then(() => location.reload());
   });

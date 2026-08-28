@@ -78,6 +78,7 @@ export const updateProfile = async (data: {
   date_level: string | number;
   date_level_exp: string | number;
   minigame_levels: Record<string, string | number>;
+  unlock_all_dresses: boolean;
 }) => {
   const [birthMonth, birthDay] = data.birthday.split(",");
   const birthMonthHex = BIRTH_MONTH_CODES[birthMonth];
@@ -132,6 +133,30 @@ export const updateProfile = async (data: {
 
   lpac01Bindata[DATE_LEVEL_OFFSET] = dateLevel;
   lpac01Bindata.writeUInt16BE(dateLevelExp, DATE_LEVEL_EXP_OFFSET);
+
+  if (lpac01Bindata.length >= 82) {
+    const MAX_DRESSES: Record<string, number> = {
+      "Manaka": 133,
+      "Rinko": 146,
+      "Nene": 134
+    };
+    const numDresses = MAX_DRESSES[data.girlfriend] || 146;
+
+    for (let i = 0; i < 32; i++) {
+      if (data.unlock_all_dresses) {
+        if ((i + 1) * 8 <= numDresses) {
+          lpac01Bindata[50 + i] = 0xFF;
+        } else if (i * 8 < numDresses) {
+          const remainder = numDresses % 8;
+          lpac01Bindata[50 + i] = (~((1 << (8 - remainder)) - 1)) & 0xFF;
+        } else {
+          lpac01Bindata[50 + i] = 0x00;
+        }
+      } else {
+        lpac01Bindata[50 + i] = 0x00;
+      }
+    }
+  }
 
   await DB.Update<Profile>(
     data.refid,

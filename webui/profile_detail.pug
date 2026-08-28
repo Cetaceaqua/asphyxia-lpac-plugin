@@ -197,6 +197,14 @@ div
                                     label.label.is-small= minigameLabel
                                     .control
                                         input.input.minigame-level(type="number" id=minigameId min="1" max="50" data-slot=index value=bindataLevel(44 + index))
+                    .field
+                        label.label Unlock Status
+                        .control
+                            label.checkbox
+                                - const bindata = profile.usergamedata["LPAC01"]["bindata"];
+                                - const isDressesUnlocked = bindata[50] === 0xFF && bindata[51] === 0xFF && bindata[52] === 0xFF && bindata[53] === 0xFF;
+                                input#unlock-all-dresses(type="checkbox" checked=isDressesUnlocked)
+                                |  Unlock All Outfits (Unlock all non-default outfits in the collection box)
 
                 .field(style="margin-top: 1.5rem")
                     button.button.is-primary#submit-button(type="button") 
