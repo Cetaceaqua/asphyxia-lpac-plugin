@@ -3,12 +3,20 @@ import { getmaster } from "./handlers/getmaster";
 import { usergamedata_recv } from "./handlers/usergamedata_recv";
 import { usergamedata_send } from "./handlers/usergamedata_send";
 import { usergamedata_condrecv } from "./handlers/usergamedata_condrecv";
-import { updateProfile } from "./handlers/webui";
+import { updateProfile, getPhotos } from "./handlers/webui";
+import { declareUpload, commitUpload, startUploadServer } from "./handlers/uploader";
 
 export function register() {
   R.GameCode("KLP");
 
   R.Unhandled();
+
+  R.ExtraModuleHandler((model) => {
+    if (model.startsWith("KLP")) {
+      return ["uploader"];
+    }
+    return [];
+  });
 
   R.Contributor("Cetaceaqua", "https://cetaceaqua.com");
 
@@ -82,8 +90,13 @@ export function register() {
   R.Route("playerdata.usergamedata_recv", usergamedata_recv);
   R.Route("playerdata.usergamedata_send", usergamedata_send);
   R.Route("playerdata.usergamedata_condrecv", usergamedata_condrecv);
+  R.Route("uploader.declareUpload", declareUpload);
+  R.Route("uploader.commitUpload", commitUpload);
 
   R.WebUIEvent("updateProfile", updateProfile);
+  R.WebUIEvent("getPhotos", getPhotos);
+
+  startUploadServer();
 
   console.log('Plugin Registered');
   console.log(`Asphyxia CORE Version: v${CORE_VERSION_MAJOR}.${CORE_VERSION_MINOR}`);

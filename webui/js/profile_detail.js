@@ -130,4 +130,51 @@ $(document).ready(function () {
     };
     emit("updateProfile", data).then(() => location.reload());
   });
+
+  function loadPhotos() {
+    const refid = $("#refid").val();
+    if (!refid) return;
+
+    emit("getPhotos", { refid }).then((res) => {
+      const container = $("#photo-gallery-container");
+      container.empty();
+      if (!res || !res.photos || res.photos.length === 0) {
+        container.append(
+          $(
+            "<div class='column is-12'><p class='has-text-grey'>No commemorative photos uploaded yet. Choose to upload/print photos during in-game date settlement to see them here!</p></div>"
+          )
+        );
+        return;
+      }
+
+      res.photos.forEach((photo) => {
+        const card = $(`
+          <div class="column is-one-third">
+            <div class="card">
+              <div class="card-image">
+                <figure class="image">
+                  <a href="data:image/jpeg;base64,${photo.base64}" target="_blank">
+                    <img src="data:image/jpeg;base64,${photo.base64}" alt="${photo.fileName}" style="object-fit: cover; max-height: 380px; width: 100%; border-radius: 4px 4px 0 0;" />
+                  </a>
+                </figure>
+              </div>
+              <div class="card-content" style="padding: 0.75rem;">
+                <p class="is-size-7 has-text-weight-semibold" style="word-break: break-all;">${photo.fileName}</p>
+                <a class="button is-small is-link is-light mt-2 is-fullwidth" href="data:image/jpeg;base64,${photo.base64}" download="${photo.fileName}">
+                  <span class="icon is-small"><i class="mdi mdi-download"></i></span>
+                  <span>Download Photo</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        `);
+        container.append(card);
+      });
+    }).catch(() => {
+      $("#photo-gallery-container").html("<div class='column is-12'><p class='has-text-grey'>Failed to load photos.</p></div>");
+    });
+  }
+
+  loadPhotos();
 });
+
