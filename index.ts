@@ -3,22 +3,37 @@ import { getmaster } from "./handlers/getmaster";
 import { usergamedata_recv } from "./handlers/usergamedata_recv";
 import { usergamedata_send } from "./handlers/usergamedata_send";
 import { usergamedata_condrecv } from "./handlers/usergamedata_condrecv";
-import { updateProfile, getPhotos } from "./handlers/webui";
-import { declareUpload, commitUpload, startUploadServer } from "./handlers/uploader";
+import { updateProfile } from "./handlers/webui";
+import { declareUpload, commitUpload } from "./handlers/uploader";
 
 export function register() {
   R.GameCode("KLP");
 
   R.Unhandled();
 
-  R.ExtraModuleHandler((model) => {
-    if (model.startsWith("KLP")) {
+  R.ExtraModuleHandler(async (model) => {
+    const isEnabled = U.GetConfig("enable_uploader") !== false;
+    if (model.startsWith("KLP") && isEnabled) {
       return ["uploader"];
     }
     return [];
   });
 
   R.Contributor("Cetaceaqua", "https://cetaceaqua.com");
+
+  R.Config("enable_uploader", {
+    name: "Enable EA3 Uploader",
+    desc: "Enable EA3 uploader module in services.get.",
+    type: "boolean",
+    default: true,
+  });
+
+  R.Config("uploader_url", {
+    name: "EA3 Uploader URL",
+    desc: "Base URL of EA3 uploader server.",
+    type: "string",
+    default: "http://localhost:8084",
+  });
 
   R.Config("enable_medal_collab", {
     name: "Love Plus MEDAL Collab",
@@ -94,10 +109,7 @@ export function register() {
   R.Route("uploader.commitUpload", commitUpload);
 
   R.WebUIEvent("updateProfile", updateProfile);
-  R.WebUIEvent("getPhotos", getPhotos);
 
-  startUploadServer();
-
-  console.log('Plugin Registered');
+  console.log("Plugin Registered");
   console.log(`Asphyxia CORE Version: v${CORE_VERSION_MAJOR}.${CORE_VERSION_MINOR}`);
 }

@@ -1,5 +1,6 @@
 //DATA//
     profile: DB.FindOne(refid, { collection: 'profile' })
+    uploaderUrl: U.GetConfig('uploader_url') || 'http://localhost:8084'
 -
     const playerName = profile.usergamedata["LPAC00"]["strdata"][27];
     const playerReading = profile.usergamedata["LPAC00"]["strdata"][4];
@@ -198,13 +199,13 @@ div
                                     .control
                                         input.input.minigame-level(type="number" id=minigameId min="1" max="50" data-slot=index value=bindataLevel(44 + index))
                     .field
-                        label.label Unlock Status
+                        label.label Costume Unlock Status
                         .control
                             label.checkbox
                                 - const bindata = profile.usergamedata["LPAC01"]["bindata"];
                                 - const isDressesUnlocked = bindata[50] === 0xFF && bindata[51] === 0xFF && bindata[52] === 0xFF && bindata[53] === 0xFF;
                                 input#unlock-all-dresses(type="checkbox" checked=isDressesUnlocked)
-                                |  Unlock All Outfits (Unlock all non-default outfits in the collection box)
+                                |  Unlock All Costumes
 
                 .field(style="margin-top: 1.5rem")
                     button.button.is-primary#submit-button(type="button") 
@@ -215,10 +216,18 @@ div
                 hr
 
                 .photo-gallery-section
-                    h2.title.is-5 📸 Commemorative Photos (EAGate Uploads)
-                    #photo-gallery-container.columns.is-multiline
-                        .column.is-12
-                            p.has-text-grey Loading photos...
+                    h2.title.is-5 📸 EA3 Uploader
+                    .box.has-background-dark.p-4
+                        .level.is-mobile
+                            .level-left
+                                div
+                                    p.has-text-weight-semibold.has-text-white Gallery
+                                    p.is-size-7.has-text-grey-light View, manage and download all photos uploaded.
+                            .level-right
+                                a.button.is-primary.is-small(href=uploaderUrl target="_blank")
+                                    span.icon
+                                        i.mdi.mdi-open-in-new
+                                    span Open
 
                 hr
 

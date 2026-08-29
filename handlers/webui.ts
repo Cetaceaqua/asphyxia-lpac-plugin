@@ -177,29 +177,3 @@ export const updateProfile = async (data: {
   );
 };
 
-const PHOTOS_DIR = path.resolve(process.cwd(), "savedata/photos");
-
-export const getPhotos = async (data: { refid: string }, send: WebUISend) => {
-  const refDir = path.join(PHOTOS_DIR, data.refid);
-  if (!fs.existsSync(refDir)) {
-    return send.json({ photos: [] });
-  }
-
-  try {
-    const files = fs.readdirSync(refDir).filter((f) => f.toLowerCase().endsWith(".jpg"));
-    const photos = files.map((fileName) => {
-      const filePath = path.join(refDir, fileName);
-      const buffer = fs.readFileSync(filePath);
-      return {
-        fileName,
-        base64: buffer.toString("base64"),
-      };
-    });
-
-    return send.json({ photos });
-  } catch (err) {
-    console.error("[WebUI] Error reading photos:", err);
-    return send.json({ photos: [] });
-  }
-};
-
