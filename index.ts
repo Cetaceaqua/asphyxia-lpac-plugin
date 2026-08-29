@@ -57,8 +57,8 @@ export function register() {
   });
 
   R.Config("ark_has0_string", {
-    name: "Game Settings (ARK_HAS0)",
-    desc: "Settings string returned for ARK_HAS0.",
+    name: "Game Settings",
+    desc: "String returned for ARK_HAS0.",
     type: "string",
     default:
       "DEMOCOMMERCIAL,demoloop_cm_006;DRESSOPEN,7;DATEPLUSNORMA,3,8,12;DATELVUPSCL,50;MGLVUPSCL,50;SITFSPROB,50;",
