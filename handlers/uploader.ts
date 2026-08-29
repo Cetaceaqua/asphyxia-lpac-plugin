@@ -6,7 +6,9 @@ export const declareUpload: EPR = async (info, data, send) => {
 
   const uploaderUrl = (U.GetConfig("uploader_url") as string) || "http://127.0.0.1:8084";
   const cleanUrl = uploaderUrl.replace(/\/+$/, "");
-  const uploadEndpoint = cleanUrl.endsWith("/upload") ? cleanUrl : `${cleanUrl}/upload`;
+  const basePath = cleanUrl.endsWith("/upload") ? cleanUrl : `${cleanUrl}/upload`;
+  const gameCode = (info.model || "KLP").split(":")[0] || "KLP";
+  const uploadEndpoint = `${basePath}?game=${encodeURIComponent(gameCode)}`;
   const arrangeNum = `${Math.floor(1000000000 + Math.random() * 9000000000)}`;
 
   return send.object({
