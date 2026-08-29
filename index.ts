@@ -25,12 +25,12 @@ export function register() {
     name: "Enable EA3 Uploader",
     desc: "Enable EA3 uploader module in services.get.",
     type: "boolean",
-    default: true,
+    default: false,
   });
 
   R.Config("uploader_url", {
     name: "EA3 Uploader URL",
-    desc: "Base URL of EA3 uploader server.",
+    desc: "Base URL of Asphyxia EA3 Uploader.",
     type: "string",
     default: "http://localhost:8084",
   });
