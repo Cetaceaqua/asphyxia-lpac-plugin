@@ -7,6 +7,12 @@ export const eventlog: EPR = async (info, data, send) => {
   });
 };
 
+export const netlog_send: EPR = async (info, data, send) => {
+  return send.object({
+    result: K.ITEM("s32", 0),
+  });
+}
+
 export const getdatalist: EPR = async (info, data, send) => {
   return send.object({
     result: K.ITEM("s32", 0),

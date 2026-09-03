@@ -1,4 +1,4 @@
-import { eventlog, getdatalist } from "./handlers/common";
+import { eventlog, netlog_send, getdatalist } from "./handlers/common";
 import { getmaster } from "./handlers/getmaster";
 import { usergamedata_recv } from "./handlers/usergamedata_recv";
 import { usergamedata_send } from "./handlers/usergamedata_send";
@@ -100,6 +100,7 @@ export function register() {
   });
 
   R.Route("eventlog.write", eventlog);
+  R.Route("netlog.send", netlog_send);
   R.Route("cardmng.getdatalist", getdatalist);
   R.Route("system.getmaster", getmaster);
   R.Route("playerdata.usergamedata_recv", usergamedata_recv);
