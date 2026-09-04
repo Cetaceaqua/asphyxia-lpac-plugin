@@ -86,6 +86,27 @@
     ];
     const isMinigameUnlocked = (unlock) => isMinigamePermitUnlocked(unlock.index);
 
+    const firstPerson = lpac01Bindata[354] ?? 0;
+    const callsHer = lpac01Bindata[355] ?? 0;
+    const nicknameId3dsRaw = (
+        ((lpac01Bindata[360] ?? 255) << 24) |
+        ((lpac01Bindata[361] ?? 255) << 16) |
+        ((lpac01Bindata[362] ?? 255) << 8) |
+        (lpac01Bindata[363] ?? 255)
+    );
+    const nicknameId3ds = (nicknameId3dsRaw === -1 || nicknameId3dsRaw === 0xFFFFFFFF) ? -1 : nicknameId3dsRaw;
+
+    const collaborateCode = lpac01Bindata[340] ?? 0;
+    const arMarkerCodeRaw = (
+        ((lpac01Bindata[345] ?? 255) << 24) |
+        ((lpac01Bindata[346] ?? 255) << 16) |
+        ((lpac01Bindata[347] ?? 255) << 8) |
+        (lpac01Bindata[348] ?? 255)
+    ) >>> 0;
+    const isArLinked = collaborateCode === 2 && arMarkerCodeRaw !== 0xFFFFFFFF;
+    const savedArCode = isArLinked ? arMarkerCodeRaw : 0;
+    const savedHairType = ((lpac01Bindata[350] ?? 0) << 8) | (lpac01Bindata[351] ?? 0);
+
 div
     .card
         .card-header
@@ -206,6 +227,134 @@ div
                                 - const isDressesUnlocked = bindata[50] === 0xFF && bindata[51] === 0xFF && bindata[52] === 0xFF && bindata[53] === 0xFF;
                                 input#unlock-all-dresses(type="checkbox" checked=isDressesUnlocked)
                                 |  Unlock All Costumes
+
+                hr
+
+                .profile-data-section
+                    h2.title.is-5 🗣️ Nintendo 3DS Sync
+
+                    .field
+                        label.label First Person (一人称)
+                        .control
+                            .select
+                                select#first-person(name="first_person")
+                                    option(value="0" selected=(firstPerson === 0)) 僕 (Boku)
+                                    option(value="1" selected=(firstPerson === 1)) 俺 (Ore)
+                        p.help Player's first-person pronoun in dialogue.
+
+                    .field
+                        label.label Calls Her (彼女の呼び方)
+                        .control
+                            .select
+                                select#calls-her(name="calls_her" data-current=callsHer)
+                                    option(value=callsHer) Loading...
+                        p.help How player addresses their girlfriend in dialogue.
+
+                    .field
+                        label.label 3DS Nickname (彼氏の呼び方)
+                        .field.has-addons
+                            .control.is-expanded
+                                .select.is-fullwidth
+                                    select#nickname-preset
+                                        option(value="-1") Default Base Reading
+                                        option(value="958") Darling (ダーリン)
+                                        option(value="966") Senpai (先輩)
+                                        option(value="964") Onii-chan (おにいちゃん)
+                                        option(value="2945") Nii-san (にいさん)
+                                        option(value="2940") Onii-sama (お兄様)
+                                        option(value="963") Otouto-kun (おとうと君)
+                                        option(value="2948") Ouji-sama (王子様)
+                                        option(value="2939") Master (マスター)
+                                        option(value="965") Goshujin-sama (ご主人様)
+                                        option(value="967") Danna-sama (だんな様)
+                                        option(value="2943") Papa (パパ)
+                                        option(value="2944") Honey (ハニー)
+                                        option(value="2942") Sensei (先生)
+                                        option(value="2941") Kakka (閣下)
+                                        option(value="959") Kimi (キミ)
+                                        option(value="960") Anata (あなた)
+                                        option(value="custom") Custom Table 2 ID...
+
+                            .control
+                                input.input#nickname-id(type="number" min="-1" max="5503" value=nicknameId3ds style="width: 140px" placeholder="ID (-1 ~ 5503)")
+                        p#nickname-preview.help.has-text-info Current Nickname: Loading...
+
+                hr
+
+                .profile-data-section
+                    h2.title.is-5 💇 Nintendo DS Sync
+
+                    .field
+                        .control
+                            label.checkbox
+                                input#override-hairstyle(type="checkbox" checked=isArLinked)
+                                strong  Override Hairstyle
+                        p.help Writes hairstyle AR Marker info directly into save data.
+
+                    #hairstyle-controls(data-saved-ar=savedArCode data-saved-type=savedHairType style=isArLinked ? "" : "display: none; margin-top: 1rem;")
+                        .columns
+                            .column.is-one-third
+                                .field
+                                    label.label Hair Length (髪の長さ)
+                                    .control
+                                        .select.is-fullwidth
+                                            select#hair-length
+                                                option(value="0") Long (ロング)
+                                                option(value="1") Middle (ミドル)
+                                                option(value="2") Short (ショート)
+                            .column.is-one-third
+                                .field
+                                    label.label Hair Style (髪型)
+                                    .control
+                                        .select.is-fullwidth
+                                            select#hair-style
+                            .column.is-one-third
+                                .field
+                                    label.label Hair Color (髪色)
+                                    .control
+                                        .select.is-fullwidth
+                                            select#hair-color
+                                    p#color-detail-badge.help(style="display: flex; align-items: center; margin-top: 6px;")
+                                        span#color-swatch-dot(style="display: inline-block; width: 14px; height: 14px; border-radius: 3px; border: 1px solid rgba(0,0,0,0.2); margin-right: 6px;")
+                                        span#color-rgb-text.has-text-grey Loading...
+
+                        .field.mt-3
+                            label.label.is-size-7 Color Reference
+                            #color-swatches-grid(style="display: flex; flex-wrap: wrap; gap: 8px; padding: 10px; background: #f9fafb; border-radius: 6px; border: 1px solid #e5e7eb; max-height: 280px; overflow-y: auto;")
+
+                        .notification.is-info.is-light.p-3.mt-3(style="border-left: 4px solid #3273dc;")
+                            p.has-text-weight-bold.is-size-7 Notes
+                            ul.is-size-7.mt-1.ml-4(style="list-style: disc;")
+                                li
+                                    strong Rinko
+                                    span : Default color is 
+                                    strong Natural Brown / Dark Brown B (自然な茶系／黒っぽい Ｂ)
+                                    span .
+                                li
+                                    strong Manaka
+                                    span : Default color is 
+                                    strong Black (黒)
+                                    span .
+                                li
+                                    strong Nene
+                                    span : Default color is 
+                                    strong Natural Brown / Yellow B (自然な茶系／黄色っぽい Ｂ)
+                                    span .
+                                li
+                                    span Different girlfriends may have different hair colors with the same color ID.
+
+
+                        .box.has-background-light.p-3.mt-3
+                            p.has-text-weight-semibold.is-size-7 Hairstyle Parameters:
+                            p.is-size-7
+                                span.has-text-grey AR Marker Code: 
+                                code#preview-ar-code 0x0000 (0)
+                                span.has-text-grey.ml-3 Arcade Model ID: 
+                                code#preview-hair-type 0x1000
+                                span.has-text-grey.ml-3 DS Model Code: 
+                                code#preview-ds-code DS_m_00_000
+
+
 
                 .field(style="margin-top: 1.5rem")
                     button.button.is-primary#submit-button(type="button") 

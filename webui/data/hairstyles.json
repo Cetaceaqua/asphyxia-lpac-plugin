@@ -1,0 +1,1399 @@
+{
+  "lengths": [
+    {
+      "value": 0,
+      "name": "Long (ロング)"
+    },
+    {
+      "value": 1,
+      "name": "Middle (ミドル)"
+    },
+    {
+      "value": 2,
+      "name": "Short (ショート)"
+    }
+  ],
+  "styles": [
+    {
+      "value": 0,
+      "name": "Basic (基本)"
+    },
+    {
+      "value": 1,
+      "name": "Home (自宅)"
+    },
+    {
+      "value": 2,
+      "name": "Cute A (かわいい Ａ)"
+    },
+    {
+      "value": 3,
+      "name": "Cute B (かわいい Ｂ)"
+    },
+    {
+      "value": 4,
+      "name": "Cute C (かわいい Ｃ)"
+    },
+    {
+      "value": 5,
+      "name": "Casual A (カジュアル Ａ)"
+    },
+    {
+      "value": 6,
+      "name": "Casual B (カジュアル Ｂ)"
+    },
+    {
+      "value": 7,
+      "name": "Casual C (カジュアル Ｃ)"
+    },
+    {
+      "value": 8,
+      "name": "Neat A (清楚 Ａ)"
+    },
+    {
+      "value": 9,
+      "name": "Neat B (清楚 Ｂ)"
+    },
+    {
+      "value": 10,
+      "name": "Neat C (清楚 Ｃ)"
+    },
+    {
+      "value": 11,
+      "name": "Updo (アップ)"
+    },
+    {
+      "value": 12,
+      "name": "Party (パーティー)"
+    },
+    {
+      "value": 13,
+      "name": "Live (ライブ)"
+    },
+    {
+      "value": 14,
+      "name": "Gothic Lolita (ゴスロリ)"
+    }
+  ],
+  "colors": [
+    {
+      "value": 0,
+      "name": "Black (黒)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#373236",
+          "r": 55,
+          "g": 50,
+          "b": 54,
+          "name": "黒"
+        },
+        "Rinko": {
+          "hex": "#514968",
+          "r": 81,
+          "g": 73,
+          "b": 104,
+          "name": "黒"
+        },
+        "Nene": {
+          "hex": "#24242c",
+          "r": 36,
+          "g": 36,
+          "b": 44,
+          "name": "黒"
+        }
+      }
+    },
+    {
+      "value": 1,
+      "name": "Bright / Yellow A (明るい色／黄色っぽい Ａ)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#aa8246",
+          "r": 170,
+          "g": 130,
+          "b": 70,
+          "name": "明るい・黄(A)"
+        },
+        "Rinko": {
+          "hex": "#9d9462",
+          "r": 157,
+          "g": 148,
+          "b": 98,
+          "name": "明るい・黄(A)"
+        },
+        "Nene": {
+          "hex": "#736847",
+          "r": 115,
+          "g": 104,
+          "b": 71,
+          "name": "明るい・黄(A)"
+        }
+      }
+    },
+    {
+      "value": 8,
+      "name": "Bright / Yellow B (明るい色／黄色っぽい Ｂ)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#bba045",
+          "r": 187,
+          "g": 160,
+          "b": 69,
+          "name": "明るい・黄(B)"
+        },
+        "Rinko": {
+          "hex": "#b3a53b",
+          "r": 179,
+          "g": 165,
+          "b": 59,
+          "name": "明るい・黄(B)"
+        },
+        "Nene": {
+          "hex": "#82721e",
+          "r": 130,
+          "g": 114,
+          "b": 30,
+          "name": "明るい・黄(B)"
+        }
+      }
+    },
+    {
+      "value": 2,
+      "name": "Bright / Red A (明るい色／赤っぽい Ａ)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#a17d6f",
+          "r": 161,
+          "g": 125,
+          "b": 111,
+          "name": "明るい・赤(A)"
+        },
+        "Rinko": {
+          "hex": "#ab9984",
+          "r": 171,
+          "g": 153,
+          "b": 132,
+          "name": "明るい・赤(A)"
+        },
+        "Nene": {
+          "hex": "#6a5246",
+          "r": 106,
+          "g": 82,
+          "b": 70,
+          "name": "明るい・赤(A)"
+        }
+      }
+    },
+    {
+      "value": 9,
+      "name": "Bright / Red B (明るい色／赤っぽい Ｂ)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#715b42",
+          "r": 113,
+          "g": 91,
+          "b": 66,
+          "name": "明るい・赤(B)"
+        },
+        "Rinko": {
+          "hex": "#775842",
+          "r": 119,
+          "g": 88,
+          "b": 66,
+          "name": "明るい・赤(B)"
+        },
+        "Nene": {
+          "hex": "#41352b",
+          "r": 65,
+          "g": 53,
+          "b": 43,
+          "name": "明るい・赤(B)"
+        }
+      }
+    },
+    {
+      "value": 3,
+      "name": "Bright / Black A (明るい色／黒っぽい Ａ)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#646464",
+          "r": 100,
+          "g": 100,
+          "b": 100,
+          "name": "明るい・黒(A)"
+        },
+        "Rinko": {
+          "hex": "#646464",
+          "r": 100,
+          "g": 100,
+          "b": 100,
+          "name": "明るい・黒(A)"
+        },
+        "Nene": {
+          "hex": "#464646",
+          "r": 70,
+          "g": 70,
+          "b": 70,
+          "name": "明るい・黒(A)"
+        }
+      }
+    },
+    {
+      "value": 10,
+      "name": "Bright / Black B (明るい色／黒っぽい Ｂ)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#3f3f3f",
+          "r": 63,
+          "g": 63,
+          "b": 63,
+          "name": "明るい・黒(B)"
+        },
+        "Rinko": {
+          "hex": "#494949",
+          "r": 73,
+          "g": 73,
+          "b": 73,
+          "name": "明るい・黒(B)"
+        },
+        "Nene": {
+          "hex": "#1d2020",
+          "r": 29,
+          "g": 32,
+          "b": 32,
+          "name": "明るい・黒(B)"
+        }
+      }
+    },
+    {
+      "value": 6,
+      "name": "Natural Brown / Yellow A (自然な茶系／黄色っぽい Ａ)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#765549",
+          "r": 118,
+          "g": 85,
+          "b": 73,
+          "name": "茶系・黄(A)"
+        },
+        "Rinko": {
+          "hex": "#6d4d4b",
+          "r": 109,
+          "g": 77,
+          "b": 75,
+          "name": "茶系・黄(A)"
+        },
+        "Nene": {
+          "hex": "#3e1210",
+          "r": 62,
+          "g": 18,
+          "b": 16,
+          "name": "茶系・黄(A)"
+        }
+      }
+    },
+    {
+      "value": 11,
+      "name": "Natural Brown / Yellow B (自然な茶系／黄色っぽい Ｂ)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#472521",
+          "r": 71,
+          "g": 37,
+          "b": 33,
+          "name": "茶系・黄(B)"
+        },
+        "Rinko": {
+          "hex": "#482720",
+          "r": 72,
+          "g": 39,
+          "b": 32,
+          "name": "茶系・黄(B)"
+        },
+        "Nene": {
+          "hex": "#230a0b",
+          "r": 35,
+          "g": 10,
+          "b": 11,
+          "name": "茶系・黄(B)"
+        }
+      }
+    },
+    {
+      "value": 4,
+      "name": "Natural Brown / Red A (自然な茶系／赤っぽい Ａ)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#71291c",
+          "r": 113,
+          "g": 41,
+          "b": 28,
+          "name": "茶系・赤(A)"
+        },
+        "Rinko": {
+          "hex": "#793020",
+          "r": 121,
+          "g": 48,
+          "b": 32,
+          "name": "茶系・赤(A)"
+        },
+        "Nene": {
+          "hex": "#46110f",
+          "r": 70,
+          "g": 17,
+          "b": 15,
+          "name": "茶系・赤(A)"
+        }
+      }
+    },
+    {
+      "value": 12,
+      "name": "Natural Brown / Red B (自然な茶系／赤っぽい Ｂ)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#450900",
+          "r": 69,
+          "g": 9,
+          "b": 0,
+          "name": "茶系・赤(B)"
+        },
+        "Rinko": {
+          "hex": "#490000",
+          "r": 73,
+          "g": 0,
+          "b": 0,
+          "name": "茶系・赤(B)"
+        },
+        "Nene": {
+          "hex": "#260000",
+          "r": 38,
+          "g": 0,
+          "b": 0,
+          "name": "茶系・赤(B)"
+        }
+      }
+    },
+    {
+      "value": 5,
+      "name": "Natural Brown / Black A (自然な茶系／黒っぽい Ａ)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#5e4f44",
+          "r": 94,
+          "g": 79,
+          "b": 68,
+          "name": "茶系・黒(A)"
+        },
+        "Rinko": {
+          "hex": "#5e5044",
+          "r": 94,
+          "g": 80,
+          "b": 68,
+          "name": "茶系・黒(A)"
+        },
+        "Nene": {
+          "hex": "#3c3c32",
+          "r": 60,
+          "g": 60,
+          "b": 50,
+          "name": "茶系・黒(A)"
+        }
+      }
+    },
+    {
+      "value": 13,
+      "name": "Natural Brown / Black B (自然な茶系／黒っぽい Ｂ)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#1f1918",
+          "r": 31,
+          "g": 25,
+          "b": 24,
+          "name": "茶系・黒(B)"
+        },
+        "Rinko": {
+          "hex": "#2b1f13",
+          "r": 43,
+          "g": 31,
+          "b": 19,
+          "name": "茶系・黒(B)"
+        },
+        "Nene": {
+          "hex": "#19130e",
+          "r": 25,
+          "g": 19,
+          "b": 14,
+          "name": "茶系・黒(B)"
+        }
+      }
+    },
+    {
+      "value": 7,
+      "name": "Special / Pink (特殊カラー／ピンク)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#da4760",
+          "r": 218,
+          "g": 71,
+          "b": 96,
+          "name": "ピンク"
+        },
+        "Rinko": {
+          "hex": "#d25082",
+          "r": 210,
+          "g": 80,
+          "b": 130,
+          "name": "ピンク"
+        },
+        "Nene": {
+          "hex": "#941e44",
+          "r": 148,
+          "g": 30,
+          "b": 68,
+          "name": "ピンク"
+        }
+      }
+    },
+    {
+      "value": 15,
+      "name": "Special / Blue (特殊カラー／ブルー)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#2353aa",
+          "r": 35,
+          "g": 83,
+          "b": 170,
+          "name": "青"
+        },
+        "Rinko": {
+          "hex": "#356ca4",
+          "r": 53,
+          "g": 108,
+          "b": 164,
+          "name": "青"
+        },
+        "Nene": {
+          "hex": "#0f3a96",
+          "r": 15,
+          "g": 58,
+          "b": 150,
+          "name": "青"
+        }
+      }
+    },
+    {
+      "value": 16,
+      "name": "Special / Light Green (特殊カラー／ライトグリーン)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#32915e",
+          "r": 50,
+          "g": 145,
+          "b": 94,
+          "name": "黄緑"
+        },
+        "Rinko": {
+          "hex": "#259565",
+          "r": 37,
+          "g": 149,
+          "b": 101,
+          "name": "黄緑"
+        },
+        "Nene": {
+          "hex": "#25643d",
+          "r": 37,
+          "g": 100,
+          "b": 61,
+          "name": "黄緑"
+        }
+      }
+    },
+    {
+      "value": 17,
+      "name": "Special / Purple (特殊カラー／パープル)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#8640c1",
+          "r": 134,
+          "g": 64,
+          "b": 193,
+          "name": "紫"
+        },
+        "Rinko": {
+          "hex": "#6c65bf",
+          "r": 108,
+          "g": 101,
+          "b": 191,
+          "name": "紫"
+        },
+        "Nene": {
+          "hex": "#532194",
+          "r": 83,
+          "g": 33,
+          "b": 148,
+          "name": "紫"
+        }
+      }
+    },
+    {
+      "value": 18,
+      "name": "Special / Orange (特殊カラー／オレンジ)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#c87850",
+          "r": 200,
+          "g": 120,
+          "b": 80,
+          "name": "オレンジ"
+        },
+        "Rinko": {
+          "hex": "#dd8151",
+          "r": 221,
+          "g": 129,
+          "b": 81,
+          "name": "オレンジ"
+        },
+        "Nene": {
+          "hex": "#8e4b20",
+          "r": 142,
+          "g": 75,
+          "b": 32,
+          "name": "オレンジ"
+        }
+      }
+    },
+    {
+      "value": 19,
+      "name": "Special / Green (特殊カラー／グリーン)",
+      "rgbs": {
+        "Manaka": {
+          "hex": "#3c686b",
+          "r": 60,
+          "g": 104,
+          "b": 107,
+          "name": "緑"
+        },
+        "Rinko": {
+          "hex": "#396e6e",
+          "r": 57,
+          "g": 110,
+          "b": 110,
+          "name": "緑"
+        },
+        "Nene": {
+          "hex": "#003a3a",
+          "r": 0,
+          "g": 58,
+          "b": 58,
+          "name": "緑"
+        }
+      }
+    }
+  ],
+  "catalogs": {
+    "Manaka": [
+      0,
+      1,
+      2,
+      27,
+      28,
+      3,
+      29,
+      30,
+      4,
+      31,
+      32,
+      5,
+      6,
+      7,
+      8,
+      11,
+      12,
+      13,
+      33,
+      34,
+      14,
+      35,
+      36,
+      15,
+      37,
+      38,
+      16,
+      17,
+      17,
+      17,
+      19,
+      20,
+      21,
+      39,
+      40,
+      22,
+      41,
+      42,
+      23,
+      43,
+      44,
+      24,
+      25,
+      25,
+      25
+    ],
+    "Rinko": [
+      0,
+      1,
+      2,
+      24,
+      25,
+      3,
+      26,
+      27,
+      4,
+      28,
+      29,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      30,
+      31,
+      13,
+      32,
+      33,
+      14,
+      34,
+      35,
+      15,
+      16,
+      16,
+      16,
+      18,
+      19,
+      20,
+      36,
+      37,
+      21,
+      38,
+      39,
+      21,
+      40,
+      41,
+      23,
+      22,
+      22,
+      22
+    ],
+    "Nene": [
+      0,
+      1,
+      2,
+      26,
+      27,
+      3,
+      28,
+      29,
+      4,
+      30,
+      31,
+      5,
+      6,
+      7,
+      8,
+      10,
+      11,
+      12,
+      32,
+      33,
+      13,
+      34,
+      35,
+      14,
+      36,
+      37,
+      15,
+      16,
+      16,
+      16,
+      18,
+      19,
+      20,
+      38,
+      39,
+      21,
+      40,
+      41,
+      22,
+      42,
+      43,
+      23,
+      24,
+      24,
+      24
+    ]
+  },
+  "hair_type_map": {
+    "Manaka": {
+      "0": {
+        "hair_type": 4096,
+        "hair_type_hex": "0x1000",
+        "ds_code": "DS_m_00_000"
+      },
+      "1": {
+        "hair_type": 4097,
+        "hair_type_hex": "0x1001",
+        "ds_code": "DS_m_00_001"
+      },
+      "2": {
+        "hair_type": 4098,
+        "hair_type_hex": "0x1002",
+        "ds_code": "DS_m_00_002"
+      },
+      "3": {
+        "hair_type": 4099,
+        "hair_type_hex": "0x1003",
+        "ds_code": "DS_m_00_003"
+      },
+      "4": {
+        "hair_type": 4100,
+        "hair_type_hex": "0x1004",
+        "ds_code": "DS_m_00_004"
+      },
+      "5": {
+        "hair_type": 4101,
+        "hair_type_hex": "0x1005",
+        "ds_code": "DS_m_00_005"
+      },
+      "6": {
+        "hair_type": 4102,
+        "hair_type_hex": "0x1006",
+        "ds_code": "DS_m_00_006"
+      },
+      "7": {
+        "hair_type": 4103,
+        "hair_type_hex": "0x1007",
+        "ds_code": "DS_m_00_007"
+      },
+      "8": {
+        "hair_type": 4104,
+        "hair_type_hex": "0x1008",
+        "ds_code": "DS_m_00_008"
+      },
+      "9": {
+        "hair_type": 4105,
+        "hair_type_hex": "0x1009",
+        "ds_code": "DS_m_00_009"
+      },
+      "10": {
+        "hair_type": 65535,
+        "hair_type_hex": "0xFFFF",
+        "ds_code": "DS_m_00_025"
+      },
+      "11": {
+        "hair_type": 4112,
+        "hair_type_hex": "0x1010",
+        "ds_code": "DS_m_00_100"
+      },
+      "12": {
+        "hair_type": 4113,
+        "hair_type_hex": "0x1011",
+        "ds_code": "DS_m_00_101"
+      },
+      "13": {
+        "hair_type": 4114,
+        "hair_type_hex": "0x1012",
+        "ds_code": "DS_m_00_102"
+      },
+      "14": {
+        "hair_type": 4115,
+        "hair_type_hex": "0x1013",
+        "ds_code": "DS_m_00_103"
+      },
+      "15": {
+        "hair_type": 4116,
+        "hair_type_hex": "0x1014",
+        "ds_code": "DS_m_00_104"
+      },
+      "16": {
+        "hair_type": 4117,
+        "hair_type_hex": "0x1015",
+        "ds_code": "DS_m_00_105"
+      },
+      "17": {
+        "hair_type": 4118,
+        "hair_type_hex": "0x1016",
+        "ds_code": "DS_m_00_106"
+      },
+      "18": {
+        "hair_type": 65535,
+        "hair_type_hex": "0xFFFF",
+        "ds_code": "DS_m_00_125"
+      },
+      "19": {
+        "hair_type": 4125,
+        "hair_type_hex": "0x101D",
+        "ds_code": "DS_m_00_200"
+      },
+      "20": {
+        "hair_type": 4126,
+        "hair_type_hex": "0x101E",
+        "ds_code": "DS_m_00_201"
+      },
+      "21": {
+        "hair_type": 4127,
+        "hair_type_hex": "0x101F",
+        "ds_code": "DS_m_00_202"
+      },
+      "22": {
+        "hair_type": 4128,
+        "hair_type_hex": "0x1020",
+        "ds_code": "DS_m_00_203"
+      },
+      "23": {
+        "hair_type": 4129,
+        "hair_type_hex": "0x1021",
+        "ds_code": "DS_m_00_204"
+      },
+      "24": {
+        "hair_type": 4130,
+        "hair_type_hex": "0x1022",
+        "ds_code": "DS_m_00_205"
+      },
+      "25": {
+        "hair_type": 4131,
+        "hair_type_hex": "0x1023",
+        "ds_code": "DS_m_00_206"
+      },
+      "26": {
+        "hair_type": 65535,
+        "hair_type_hex": "0xFFFF",
+        "ds_code": "DS_m_00_225"
+      },
+      "27": {
+        "hair_type": 4106,
+        "hair_type_hex": "0x100A",
+        "ds_code": "DS_m_00_010"
+      },
+      "28": {
+        "hair_type": 4107,
+        "hair_type_hex": "0x100B",
+        "ds_code": "DS_m_00_011"
+      },
+      "29": {
+        "hair_type": 4108,
+        "hair_type_hex": "0x100C",
+        "ds_code": "DS_m_00_012"
+      },
+      "30": {
+        "hair_type": 4109,
+        "hair_type_hex": "0x100D",
+        "ds_code": "DS_m_00_013"
+      },
+      "31": {
+        "hair_type": 4110,
+        "hair_type_hex": "0x100E",
+        "ds_code": "DS_m_00_014"
+      },
+      "32": {
+        "hair_type": 4111,
+        "hair_type_hex": "0x100F",
+        "ds_code": "DS_m_00_015"
+      },
+      "33": {
+        "hair_type": 4119,
+        "hair_type_hex": "0x1017",
+        "ds_code": "DS_m_00_110"
+      },
+      "34": {
+        "hair_type": 4120,
+        "hair_type_hex": "0x1018",
+        "ds_code": "DS_m_00_111"
+      },
+      "35": {
+        "hair_type": 4121,
+        "hair_type_hex": "0x1019",
+        "ds_code": "DS_m_00_112"
+      },
+      "36": {
+        "hair_type": 4122,
+        "hair_type_hex": "0x101A",
+        "ds_code": "DS_m_00_113"
+      },
+      "37": {
+        "hair_type": 4123,
+        "hair_type_hex": "0x101B",
+        "ds_code": "DS_m_00_114"
+      },
+      "38": {
+        "hair_type": 4124,
+        "hair_type_hex": "0x101C",
+        "ds_code": "DS_m_00_115"
+      },
+      "39": {
+        "hair_type": 4132,
+        "hair_type_hex": "0x1024",
+        "ds_code": "DS_m_00_210"
+      },
+      "40": {
+        "hair_type": 4133,
+        "hair_type_hex": "0x1025",
+        "ds_code": "DS_m_00_211"
+      },
+      "41": {
+        "hair_type": 4134,
+        "hair_type_hex": "0x1026",
+        "ds_code": "DS_m_00_212"
+      },
+      "42": {
+        "hair_type": 4135,
+        "hair_type_hex": "0x1027",
+        "ds_code": "DS_m_00_213"
+      },
+      "43": {
+        "hair_type": 4136,
+        "hair_type_hex": "0x1028",
+        "ds_code": "DS_m_00_214"
+      },
+      "44": {
+        "hair_type": 4137,
+        "hair_type_hex": "0x1029",
+        "ds_code": "DS_m_00_215"
+      }
+    },
+    "Rinko": {
+      "0": {
+        "hair_type": 4096,
+        "hair_type_hex": "0x1000",
+        "ds_code": "DS_r_00_000"
+      },
+      "1": {
+        "hair_type": 4097,
+        "hair_type_hex": "0x1001",
+        "ds_code": "DS_r_00_001"
+      },
+      "2": {
+        "hair_type": 4098,
+        "hair_type_hex": "0x1002",
+        "ds_code": "DS_r_00_002"
+      },
+      "3": {
+        "hair_type": 4099,
+        "hair_type_hex": "0x1003",
+        "ds_code": "DS_r_00_003"
+      },
+      "4": {
+        "hair_type": 4100,
+        "hair_type_hex": "0x1004",
+        "ds_code": "DS_r_00_004"
+      },
+      "5": {
+        "hair_type": 4101,
+        "hair_type_hex": "0x1005",
+        "ds_code": "DS_r_00_005"
+      },
+      "6": {
+        "hair_type": 4102,
+        "hair_type_hex": "0x1006",
+        "ds_code": "DS_r_00_006"
+      },
+      "7": {
+        "hair_type": 4103,
+        "hair_type_hex": "0x1007",
+        "ds_code": "DS_r_00_007"
+      },
+      "8": {
+        "hair_type": 4104,
+        "hair_type_hex": "0x1008",
+        "ds_code": "DS_r_00_008"
+      },
+      "9": {
+        "hair_type": 65535,
+        "hair_type_hex": "0xFFFF",
+        "ds_code": "DS_r_00_025"
+      },
+      "10": {
+        "hair_type": 4111,
+        "hair_type_hex": "0x100F",
+        "ds_code": "DS_r_00_100"
+      },
+      "11": {
+        "hair_type": 4112,
+        "hair_type_hex": "0x1010",
+        "ds_code": "DS_r_00_101"
+      },
+      "12": {
+        "hair_type": 4113,
+        "hair_type_hex": "0x1011",
+        "ds_code": "DS_r_00_102"
+      },
+      "13": {
+        "hair_type": 4114,
+        "hair_type_hex": "0x1012",
+        "ds_code": "DS_r_00_103"
+      },
+      "14": {
+        "hair_type": 4115,
+        "hair_type_hex": "0x1013",
+        "ds_code": "DS_r_00_104"
+      },
+      "15": {
+        "hair_type": 4116,
+        "hair_type_hex": "0x1014",
+        "ds_code": "DS_r_00_105"
+      },
+      "16": {
+        "hair_type": 4117,
+        "hair_type_hex": "0x1015",
+        "ds_code": "DS_r_00_106"
+      },
+      "17": {
+        "hair_type": 65535,
+        "hair_type_hex": "0xFFFF",
+        "ds_code": "DS_r_00_125"
+      },
+      "18": {
+        "hair_type": 4124,
+        "hair_type_hex": "0x101C",
+        "ds_code": "DS_r_00_200"
+      },
+      "19": {
+        "hair_type": 4125,
+        "hair_type_hex": "0x101D",
+        "ds_code": "DS_r_00_201"
+      },
+      "20": {
+        "hair_type": 4126,
+        "hair_type_hex": "0x101E",
+        "ds_code": "DS_r_00_202"
+      },
+      "21": {
+        "hair_type": 4128,
+        "hair_type_hex": "0x1020",
+        "ds_code": "DS_r_00_204"
+      },
+      "22": {
+        "hair_type": 4130,
+        "hair_type_hex": "0x1022",
+        "ds_code": "DS_r_00_206"
+      },
+      "23": {
+        "hair_type": 65535,
+        "hair_type_hex": "0xFFFF",
+        "ds_code": "DS_r_00_225"
+      },
+      "24": {
+        "hair_type": 4105,
+        "hair_type_hex": "0x1009",
+        "ds_code": "DS_r_00_010"
+      },
+      "25": {
+        "hair_type": 4106,
+        "hair_type_hex": "0x100A",
+        "ds_code": "DS_r_00_011"
+      },
+      "26": {
+        "hair_type": 4107,
+        "hair_type_hex": "0x100B",
+        "ds_code": "DS_r_00_012"
+      },
+      "27": {
+        "hair_type": 4108,
+        "hair_type_hex": "0x100C",
+        "ds_code": "DS_r_00_013"
+      },
+      "28": {
+        "hair_type": 4109,
+        "hair_type_hex": "0x100D",
+        "ds_code": "DS_r_00_014"
+      },
+      "29": {
+        "hair_type": 4110,
+        "hair_type_hex": "0x100E",
+        "ds_code": "DS_r_00_015"
+      },
+      "30": {
+        "hair_type": 4118,
+        "hair_type_hex": "0x1016",
+        "ds_code": "DS_r_00_110"
+      },
+      "31": {
+        "hair_type": 4119,
+        "hair_type_hex": "0x1017",
+        "ds_code": "DS_r_00_111"
+      },
+      "32": {
+        "hair_type": 4120,
+        "hair_type_hex": "0x1018",
+        "ds_code": "DS_r_00_112"
+      },
+      "33": {
+        "hair_type": 4121,
+        "hair_type_hex": "0x1019",
+        "ds_code": "DS_r_00_113"
+      },
+      "34": {
+        "hair_type": 4122,
+        "hair_type_hex": "0x101A",
+        "ds_code": "DS_r_00_114"
+      },
+      "35": {
+        "hair_type": 4123,
+        "hair_type_hex": "0x101B",
+        "ds_code": "DS_r_00_115"
+      },
+      "36": {
+        "hair_type": 4131,
+        "hair_type_hex": "0x1023",
+        "ds_code": "DS_r_00_210"
+      },
+      "37": {
+        "hair_type": 4132,
+        "hair_type_hex": "0x1024",
+        "ds_code": "DS_r_00_211"
+      },
+      "38": {
+        "hair_type": 4133,
+        "hair_type_hex": "0x1025",
+        "ds_code": "DS_r_00_212"
+      },
+      "39": {
+        "hair_type": 4134,
+        "hair_type_hex": "0x1026",
+        "ds_code": "DS_r_00_213"
+      },
+      "40": {
+        "hair_type": 4135,
+        "hair_type_hex": "0x1027",
+        "ds_code": "DS_r_00_214"
+      },
+      "41": {
+        "hair_type": 4136,
+        "hair_type_hex": "0x1028",
+        "ds_code": "DS_r_00_215"
+      }
+    },
+    "Nene": {
+      "0": {
+        "hair_type": 4096,
+        "hair_type_hex": "0x1000",
+        "ds_code": "DS_n_00_000"
+      },
+      "1": {
+        "hair_type": 4097,
+        "hair_type_hex": "0x1001",
+        "ds_code": "DS_n_00_001"
+      },
+      "2": {
+        "hair_type": 4098,
+        "hair_type_hex": "0x1002",
+        "ds_code": "DS_n_00_002"
+      },
+      "3": {
+        "hair_type": 4099,
+        "hair_type_hex": "0x1003",
+        "ds_code": "DS_n_00_003"
+      },
+      "4": {
+        "hair_type": 4100,
+        "hair_type_hex": "0x1004",
+        "ds_code": "DS_n_00_004"
+      },
+      "5": {
+        "hair_type": 4101,
+        "hair_type_hex": "0x1005",
+        "ds_code": "DS_n_00_005"
+      },
+      "6": {
+        "hair_type": 4102,
+        "hair_type_hex": "0x1006",
+        "ds_code": "DS_n_00_006"
+      },
+      "7": {
+        "hair_type": 4103,
+        "hair_type_hex": "0x1007",
+        "ds_code": "DS_n_00_007"
+      },
+      "8": {
+        "hair_type": 4104,
+        "hair_type_hex": "0x1008",
+        "ds_code": "DS_n_00_008"
+      },
+      "9": {
+        "hair_type": 65535,
+        "hair_type_hex": "0xFFFF",
+        "ds_code": "DS_n_00_025"
+      },
+      "10": {
+        "hair_type": 4111,
+        "hair_type_hex": "0x100F",
+        "ds_code": "DS_n_00_100"
+      },
+      "11": {
+        "hair_type": 4112,
+        "hair_type_hex": "0x1010",
+        "ds_code": "DS_n_00_101"
+      },
+      "12": {
+        "hair_type": 4113,
+        "hair_type_hex": "0x1011",
+        "ds_code": "DS_n_00_102"
+      },
+      "13": {
+        "hair_type": 4114,
+        "hair_type_hex": "0x1012",
+        "ds_code": "DS_n_00_103"
+      },
+      "14": {
+        "hair_type": 4115,
+        "hair_type_hex": "0x1013",
+        "ds_code": "DS_n_00_104"
+      },
+      "15": {
+        "hair_type": 4116,
+        "hair_type_hex": "0x1014",
+        "ds_code": "DS_n_00_105"
+      },
+      "16": {
+        "hair_type": 4117,
+        "hair_type_hex": "0x1015",
+        "ds_code": "DS_n_00_106"
+      },
+      "17": {
+        "hair_type": 65535,
+        "hair_type_hex": "0xFFFF",
+        "ds_code": "DS_n_00_125"
+      },
+      "18": {
+        "hair_type": 4124,
+        "hair_type_hex": "0x101C",
+        "ds_code": "DS_n_00_200"
+      },
+      "19": {
+        "hair_type": 4125,
+        "hair_type_hex": "0x101D",
+        "ds_code": "DS_n_00_201"
+      },
+      "20": {
+        "hair_type": 4126,
+        "hair_type_hex": "0x101E",
+        "ds_code": "DS_n_00_202"
+      },
+      "21": {
+        "hair_type": 4127,
+        "hair_type_hex": "0x101F",
+        "ds_code": "DS_n_00_203"
+      },
+      "22": {
+        "hair_type": 4128,
+        "hair_type_hex": "0x1020",
+        "ds_code": "DS_n_00_204"
+      },
+      "23": {
+        "hair_type": 4129,
+        "hair_type_hex": "0x1021",
+        "ds_code": "DS_n_00_205"
+      },
+      "24": {
+        "hair_type": 4130,
+        "hair_type_hex": "0x1022",
+        "ds_code": "DS_n_00_206"
+      },
+      "25": {
+        "hair_type": 65535,
+        "hair_type_hex": "0xFFFF",
+        "ds_code": "DS_n_00_225"
+      },
+      "26": {
+        "hair_type": 4105,
+        "hair_type_hex": "0x1009",
+        "ds_code": "DS_n_00_010"
+      },
+      "27": {
+        "hair_type": 4106,
+        "hair_type_hex": "0x100A",
+        "ds_code": "DS_n_00_011"
+      },
+      "28": {
+        "hair_type": 4107,
+        "hair_type_hex": "0x100B",
+        "ds_code": "DS_n_00_012"
+      },
+      "29": {
+        "hair_type": 4108,
+        "hair_type_hex": "0x100C",
+        "ds_code": "DS_n_00_013"
+      },
+      "30": {
+        "hair_type": 4109,
+        "hair_type_hex": "0x100D",
+        "ds_code": "DS_n_00_014"
+      },
+      "31": {
+        "hair_type": 4110,
+        "hair_type_hex": "0x100E",
+        "ds_code": "DS_n_00_015"
+      },
+      "32": {
+        "hair_type": 4118,
+        "hair_type_hex": "0x1016",
+        "ds_code": "DS_n_00_110"
+      },
+      "33": {
+        "hair_type": 4119,
+        "hair_type_hex": "0x1017",
+        "ds_code": "DS_n_00_111"
+      },
+      "34": {
+        "hair_type": 4120,
+        "hair_type_hex": "0x1018",
+        "ds_code": "DS_n_00_112"
+      },
+      "35": {
+        "hair_type": 4121,
+        "hair_type_hex": "0x1019",
+        "ds_code": "DS_n_00_113"
+      },
+      "36": {
+        "hair_type": 4122,
+        "hair_type_hex": "0x101A",
+        "ds_code": "DS_n_00_114"
+      },
+      "37": {
+        "hair_type": 4123,
+        "hair_type_hex": "0x101B",
+        "ds_code": "DS_n_00_115"
+      },
+      "38": {
+        "hair_type": 4131,
+        "hair_type_hex": "0x1023",
+        "ds_code": "DS_n_00_210"
+      },
+      "39": {
+        "hair_type": 4132,
+        "hair_type_hex": "0x1024",
+        "ds_code": "DS_n_00_211"
+      },
+      "40": {
+        "hair_type": 4133,
+        "hair_type_hex": "0x1025",
+        "ds_code": "DS_n_00_212"
+      },
+      "41": {
+        "hair_type": 4134,
+        "hair_type_hex": "0x1026",
+        "ds_code": "DS_n_00_213"
+      },
+      "42": {
+        "hair_type": 4135,
+        "hair_type_hex": "0x1027",
+        "ds_code": "DS_n_00_214"
+      },
+      "43": {
+        "hair_type": 4136,
+        "hair_type_hex": "0x1028",
+        "ds_code": "DS_n_00_215"
+      }
+    }
+  }
+}
