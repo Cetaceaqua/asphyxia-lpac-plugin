@@ -47,13 +47,13 @@ $(document).ready(function () {
     updateDayOptions(selectedMonth);
   });
 
-  function syncMinigameUnlocks(dateLevelValue) {
+  function syncReleaseUnlocks(dateLevelValue) {
     const dateLevel = Number(dateLevelValue);
     if (!Number.isInteger(dateLevel)) {
       return;
     }
 
-    $(".minigame-unlock").each(function () {
+    $(".release-unlock, .minigame-unlock").each(function () {
       $(this).prop(
         "checked",
         dateLevel >= Number($(this).data("unlock-level"))
@@ -62,9 +62,9 @@ $(document).ready(function () {
   }
 
   $("#date-level").on("input change", function () {
-    syncMinigameUnlocks($(this).val());
+    syncReleaseUnlocks($(this).val());
   });
-  syncMinigameUnlocks($("#date-level").val());
+  syncReleaseUnlocks($("#date-level").val());
 
   function updateDayOptions(monthValue) {
     const daySelect = $("#birth-day");

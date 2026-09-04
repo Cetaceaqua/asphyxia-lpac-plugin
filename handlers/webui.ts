@@ -43,18 +43,27 @@ const DATE_LEVEL_OFFSET = 28;
 const DATE_LEVEL_EXP_OFFSET = 29;
 const DATE_LEVEL_MAX = 50;
 const DATE_LEVEL_EXP_MAX = 150;
-const MINIGAME_LEVEL_MAX = 50;
+const MINIGAME_LEVEL_MAX = 99;
 
-const DATE_LEVEL_MINIGAME_PERMITS = [
-  { level: 1, permitIndex: 1 },
-  { level: 1, permitIndex: 2 },
-  { level: 1, permitIndex: 3 },
-  { level: 1, permitIndex: 7 },
-  { level: 1, permitIndex: 11 },
-  { level: 3, permitIndex: 5 },
-  { level: 12, permitIndex: 6 },
-  { level: 17, permitIndex: 8 },
-] as const;
+interface ReleaseScheduleEntry {
+  id: string;
+  level: number;
+  item_id: number;
+  type: number;
+  name_ja: string;
+  name_en: string;
+  permitIndex?: number;
+  flagIndex?: number;
+}
+
+let releaseScheduleCache: ReleaseScheduleEntry[] | null = null;
+function getReleaseSchedule(): ReleaseScheduleEntry[] {
+  if (!releaseScheduleCache) {
+    const filePath = path.join(__dirname, "../webui/data/release_schedule.json");
+    releaseScheduleCache = JSON.parse(fs.readFileSync(filePath, "utf-8"));
+  }
+  return releaseScheduleCache;
+}
 
 const parseBoundedInteger = (
   value: string | number,
@@ -184,11 +193,27 @@ export const updateProfile = async (data: {
   }
 
   let minigamePermitFlags = lpac00Bindata.readUInt32BE(MINIGAME_PERMIT_OFFSET);
-  for (const release of DATE_LEVEL_MINIGAME_PERMITS) {
-    if (dateLevel >= release.level) {
-      minigamePermitFlags |= 1 << release.permitIndex;
-    } else {
-      minigamePermitFlags &= ~(1 << release.permitIndex);
+  // Always ensure level 1 base minigames (Hammer Helmet = 7, Silhouette Quiz = 11) are enabled
+  minigamePermitFlags |= (1 << 7) | (1 << 11);
+
+  const releaseSchedule = getReleaseSchedule();
+  for (const entry of releaseSchedule) {
+    const shouldUnlock = dateLevel >= entry.level;
+    if (entry.type === 1 && entry.permitIndex !== undefined) {
+      if (shouldUnlock) {
+        minigamePermitFlags |= 1 << entry.permitIndex;
+      } else {
+        minigamePermitFlags &= ~(1 << entry.permitIndex);
+      }
+    } else if (entry.flagIndex !== undefined) {
+      const byteOffset = 290 + Math.floor(entry.flagIndex / 8);
+      const bitPos = 7 - (entry.flagIndex % 8);
+      const mask = 1 << bitPos;
+      if (shouldUnlock) {
+        lpac01Bindata[byteOffset] |= mask;
+      } else {
+        lpac01Bindata[byteOffset] &= ~mask;
+      }
     }
   }
   lpac00Bindata.writeUInt32BE(minigamePermitFlags, MINIGAME_PERMIT_OFFSET);

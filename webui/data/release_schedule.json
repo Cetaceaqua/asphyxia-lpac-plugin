@@ -1,0 +1,470 @@
+[
+  {
+    "id": "release_1",
+    "level": 1,
+    "item_id": 1,
+    "type": 1,
+    "name_ja": "ミニゲーム「だるまさんがころんだ」解放",
+    "name_en": "Minigame: Red Light, Green Light",
+    "permitIndex": 1
+  },
+  {
+    "id": "release_2",
+    "level": 1,
+    "item_id": 2,
+    "type": 1,
+    "name_ja": "ミニゲーム「ノット３０」解放",
+    "name_en": "Minigame: Don't Say 30",
+    "permitIndex": 2
+  },
+  {
+    "id": "release_3",
+    "level": 1,
+    "item_id": 3,
+    "type": 1,
+    "name_ja": "ミニゲーム「スイカ割り」解放",
+    "name_en": "Minigame: Watermelon Smash",
+    "permitIndex": 3
+  },
+  {
+    "id": "release_4",
+    "level": 3,
+    "item_id": 4,
+    "type": 1,
+    "name_ja": "ミニゲーム「ダーツ」解放",
+    "name_en": "Minigame: Darts",
+    "permitIndex": 5
+  },
+  {
+    "id": "release_34",
+    "level": 4,
+    "item_id": 34,
+    "type": 5,
+    "name_ja": "ポーズ「ファイト！」追加",
+    "name_en": "Pose: Fight!",
+    "flagIndex": 34
+  },
+  {
+    "id": "release_7",
+    "level": 5,
+    "item_id": 7,
+    "type": 2,
+    "name_ja": "ルーレット「テンション↑↑」追加",
+    "name_en": "Roulette: Tension ↑↑",
+    "flagIndex": 7
+  },
+  {
+    "id": "release_18",
+    "level": 6,
+    "item_id": 18,
+    "type": 5,
+    "name_ja": "ポーズ「にこにこピース！」追加",
+    "name_en": "Pose: Smiling Peace!",
+    "flagIndex": 17
+  },
+  {
+    "id": "release_14",
+    "level": 7,
+    "item_id": 14,
+    "type": 4,
+    "name_ja": "会話選択肢でハート増加",
+    "name_en": "Dialogue Heart Bonus",
+    "flagIndex": 14
+  },
+  {
+    "id": "release_35",
+    "level": 8,
+    "item_id": 35,
+    "type": 5,
+    "name_ja": "ポーズ「パチパチパチ！」追加",
+    "name_en": "Pose: Clapping Hands!",
+    "flagIndex": 35
+  },
+  {
+    "id": "release_19",
+    "level": 9,
+    "item_id": 19,
+    "type": 5,
+    "name_ja": "ポーズ「クルっとね♪」追加",
+    "name_en": "Pose: Twirl Around♪",
+    "flagIndex": 18
+  },
+  {
+    "id": "release_11",
+    "level": 10,
+    "item_id": 11,
+    "type": 3,
+    "name_ja": "プレゼント「彼女の服」追加",
+    "name_en": "Present: Girlfriend's Clothes",
+    "flagIndex": 11
+  },
+  {
+    "id": "release_20",
+    "level": 11,
+    "item_id": 20,
+    "type": 5,
+    "name_ja": "ポーズ「モデルみたい」追加",
+    "name_en": "Pose: Like a Model",
+    "flagIndex": 19
+  },
+  {
+    "id": "release_5",
+    "level": 12,
+    "item_id": 5,
+    "type": 1,
+    "name_ja": "ミニゲーム「しゃぼん玉」解放",
+    "name_en": "Minigame: Soap Bubbles",
+    "permitIndex": 6
+  },
+  {
+    "id": "release_36",
+    "level": 13,
+    "item_id": 36,
+    "type": 5,
+    "name_ja": "ポーズ「ど～ぞ！」追加",
+    "name_en": "Pose: Here You Go!",
+    "flagIndex": 36
+  },
+  {
+    "id": "release_21",
+    "level": 14,
+    "item_id": 21,
+    "type": 5,
+    "name_ja": "ポーズ「もっとクルクル」追加",
+    "name_en": "Pose: Spin More",
+    "flagIndex": 20
+  },
+  {
+    "id": "release_12",
+    "level": 15,
+    "item_id": 12,
+    "type": 3,
+    "name_ja": "プレゼント「ファッションショー用の衣装」追加",
+    "name_en": "Present: Fashion Show Costumes",
+    "flagIndex": 12
+  },
+  {
+    "id": "release_22",
+    "level": 16,
+    "item_id": 22,
+    "type": 5,
+    "name_ja": "ポーズ「ふりふりダンス」追加",
+    "name_en": "Pose: Shaking Dance",
+    "flagIndex": 21
+  },
+  {
+    "id": "release_6",
+    "level": 17,
+    "item_id": 6,
+    "type": 1,
+    "name_ja": "ミニゲーム「スピード」解放",
+    "name_en": "Minigame: Spit (Speed)",
+    "permitIndex": 8
+  },
+  {
+    "id": "release_37",
+    "level": 18,
+    "item_id": 37,
+    "type": 5,
+    "name_ja": "ポーズ「どうかなぁ！？」追加",
+    "name_en": "Pose: How Is It!?",
+    "flagIndex": 37
+  },
+  {
+    "id": "release_23",
+    "level": 19,
+    "item_id": 23,
+    "type": 5,
+    "name_ja": "ポーズ「♂キメポーズ」追加",
+    "name_en": "Pose: Striking a Pose",
+    "flagIndex": 22
+  },
+  {
+    "id": "release_38",
+    "level": 20,
+    "item_id": 38,
+    "type": 5,
+    "name_ja": "ポーズ「せかしちゃうぞ！」追加",
+    "name_en": "Pose: Hurrying You Up!",
+    "flagIndex": 38
+  },
+  {
+    "id": "release_39",
+    "level": 21,
+    "item_id": 39,
+    "type": 5,
+    "name_ja": "ポーズ「やる気↑↑UP」追加",
+    "name_en": "Pose: Motivated↑↑ UP",
+    "flagIndex": 39
+  },
+  {
+    "id": "release_24",
+    "level": 22,
+    "item_id": 24,
+    "type": 5,
+    "name_ja": "ポーズ「Bye-Byeステップ」追加",
+    "name_en": "Pose: Bye-Bye Step",
+    "flagIndex": 23
+  },
+  {
+    "id": "release_40",
+    "level": 23,
+    "item_id": 40,
+    "type": 5,
+    "name_ja": "ポーズ「まちぼうけ」追加",
+    "name_en": "Pose: Waiting In Vain",
+    "flagIndex": 40
+  },
+  {
+    "id": "release_25",
+    "level": 24,
+    "item_id": 25,
+    "type": 5,
+    "name_ja": "ポーズ「おねだりマイハニー」追加",
+    "name_en": "Pose: Begging My Honey",
+    "flagIndex": 24
+  },
+  {
+    "id": "release_15",
+    "level": 25,
+    "item_id": 15,
+    "type": 4,
+    "name_ja": "テンションの基本数が２に",
+    "name_en": "Base Tension Increased to 2",
+    "flagIndex": 15
+  },
+  {
+    "id": "release_17",
+    "level": 26,
+    "item_id": 17,
+    "type": 4,
+    "name_ja": "「くつろぎファッションショー」解放",
+    "name_en": "Casual Fashion Show Unlocked",
+    "flagIndex": 33
+  },
+  {
+    "id": "release_41",
+    "level": 27,
+    "item_id": 41,
+    "type": 5,
+    "name_ja": "ポーズ「ウキウキWALK♪」追加",
+    "name_en": "Pose: Exciting Walk♪",
+    "flagIndex": 41
+  },
+  {
+    "id": "release_8",
+    "level": 28,
+    "item_id": 8,
+    "type": 2,
+    "name_ja": "ルーレット「TRIPLE」追加",
+    "name_en": "Roulette: TRIPLE",
+    "flagIndex": 8
+  },
+  {
+    "id": "release_26",
+    "level": 29,
+    "item_id": 26,
+    "type": 5,
+    "name_ja": "ポーズ「にゃんこにゃ」追加",
+    "name_en": "Pose: Nyanko Nya",
+    "flagIndex": 25
+  },
+  {
+    "id": "release_27",
+    "level": 30,
+    "item_id": 27,
+    "type": 5,
+    "name_ja": "ポーズ「がおー♪」追加",
+    "name_en": "Pose: Roar♪",
+    "flagIndex": 26
+  },
+  {
+    "id": "release_28",
+    "level": 31,
+    "item_id": 28,
+    "type": 5,
+    "name_ja": "ポーズ「ぴょんぴょんお」追加",
+    "name_en": "Pose: Hopping Jump",
+    "flagIndex": 27
+  },
+  {
+    "id": "release_42",
+    "level": 32,
+    "item_id": 42,
+    "type": 5,
+    "name_ja": "ポーズ「いえ～い！」追加",
+    "name_en": "Pose: Yay!",
+    "flagIndex": 42
+  },
+  {
+    "id": "release_29",
+    "level": 33,
+    "item_id": 29,
+    "type": 5,
+    "name_ja": "ポーズ「フォークダンスのアレ」追加",
+    "name_en": "Pose: Folk Dance Move",
+    "flagIndex": 28
+  },
+  {
+    "id": "release_43",
+    "level": 34,
+    "item_id": 43,
+    "type": 5,
+    "name_ja": "ポーズ「ワクワク♪」追加",
+    "name_en": "Pose: Thrilling♪",
+    "flagIndex": 43
+  },
+  {
+    "id": "release_9",
+    "level": 35,
+    "item_id": 9,
+    "type": 2,
+    "name_ja": "ルーレット「テンション↑↑↑」追加",
+    "name_en": "Roulette: Tension ↑↑↑",
+    "flagIndex": 9
+  },
+  {
+    "id": "release_44",
+    "level": 36,
+    "item_id": 44,
+    "type": 5,
+    "name_ja": "ポーズ「はなうた♪」追加",
+    "name_en": "Pose: Humming♪",
+    "flagIndex": 44
+  },
+  {
+    "id": "release_30",
+    "level": 37,
+    "item_id": 30,
+    "type": 5,
+    "name_ja": "ポーズ「LOVEターン」追加",
+    "name_en": "Pose: LOVE Turn",
+    "flagIndex": 29
+  },
+  {
+    "id": "release_45",
+    "level": 38,
+    "item_id": 45,
+    "type": 5,
+    "name_ja": "ポーズ「ウロウロ♪」追加",
+    "name_en": "Pose: Wandering Around♪",
+    "flagIndex": 45
+  },
+  {
+    "id": "release_46",
+    "level": 39,
+    "item_id": 46,
+    "type": 5,
+    "name_ja": "ポーズ「ZZZ…」追加",
+    "name_en": "Pose: ZZZ…",
+    "flagIndex": 46
+  },
+  {
+    "id": "release_31",
+    "level": 40,
+    "item_id": 31,
+    "type": 5,
+    "name_ja": "ポーズ「ストレッチ」追加",
+    "name_en": "Pose: Stretch",
+    "flagIndex": 30
+  },
+  {
+    "id": "release_47",
+    "level": 41,
+    "item_id": 47,
+    "type": 5,
+    "name_ja": "ポーズ「拍手イッパツ！」追加",
+    "name_en": "Pose: One Big Applause!",
+    "flagIndex": 47
+  },
+  {
+    "id": "release_10",
+    "level": 42,
+    "item_id": 10,
+    "type": 2,
+    "name_ja": "ルーレット「ALL BOX」追加",
+    "name_en": "Roulette: ALL BOX",
+    "flagIndex": 10
+  },
+  {
+    "id": "release_48",
+    "level": 43,
+    "item_id": 48,
+    "type": 5,
+    "name_ja": "ポーズ「どーーーん！！」追加",
+    "name_en": "Pose: BOOOOM!!",
+    "flagIndex": 48
+  },
+  {
+    "id": "release_32",
+    "level": 44,
+    "item_id": 32,
+    "type": 5,
+    "name_ja": "ポーズ「にーこにこ」追加",
+    "name_en": "Pose: Grinning Smile",
+    "flagIndex": 31
+  },
+  {
+    "id": "release_49",
+    "level": 45,
+    "item_id": 49,
+    "type": 5,
+    "name_ja": "ポーズ「もっといえ～い！」追加",
+    "name_en": "Pose: More Yay!",
+    "flagIndex": 49
+  },
+  {
+    "id": "release_50",
+    "level": 46,
+    "item_id": 50,
+    "type": 5,
+    "name_ja": "ポーズ「おちるぅ～っっ！」追加",
+    "name_en": "Pose: Falling Down~!!",
+    "flagIndex": 50
+  },
+  {
+    "id": "release_51",
+    "level": 47,
+    "item_id": 51,
+    "type": 5,
+    "name_ja": "ポーズ「たおれるぅ～っっ！」追加",
+    "name_en": "Pose: Tumbling Down~!!",
+    "flagIndex": 51
+  },
+  {
+    "id": "release_33",
+    "level": 48,
+    "item_id": 33,
+    "type": 5,
+    "name_ja": "ポーズ「オッス！」追加",
+    "name_en": "Pose: Ossu!",
+    "flagIndex": 32
+  },
+  {
+    "id": "release_52",
+    "level": 49,
+    "item_id": 52,
+    "type": 5,
+    "name_ja": "ポーズ「よろけるぅ～っっ！」追加",
+    "name_en": "Pose: Stumbling~!!",
+    "flagIndex": 52
+  },
+  {
+    "id": "release_16",
+    "level": 50,
+    "item_id": 16,
+    "type": 4,
+    "name_ja": "テンションの基本数が３に",
+    "name_en": "Base Tension Increased to 3",
+    "flagIndex": 16
+  },
+  {
+    "id": "release_53",
+    "level": 50,
+    "item_id": 53,
+    "type": 5,
+    "name_ja": "ポーズ「あ～～～ん」追加",
+    "name_en": "Pose: Ahhh~n",
+    "flagIndex": 53
+  }
+]

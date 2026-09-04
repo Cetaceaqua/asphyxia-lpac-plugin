@@ -79,12 +79,73 @@
         11: 'Silhouette Quiz (シルエットクイズ)'
     };
     const knownMinigameIndices = [1, 2, 3, 5, 6, 7, 8, 11];
-    const minigameUnlocks = [
-        { id: 'darts', name: 'Darts', level: 3, index: 5 },
-        { id: 'soap_bubbles', name: 'Soap Bubbles', level: 12, index: 6 },
-        { id: 'spit', name: 'Spit', level: 17, index: 8 }
+    const releaseUnlocks = [
+        { id: '1', level: 1, type: 1, permitIndex: 1, name_en: 'Minigame: Red Light, Green Light', name_ja: 'ミニゲーム「だるまさんがころんだ」解放' },
+        { id: '2', level: 1, type: 1, permitIndex: 2, name_en: "Minigame: Don't Say 30", name_ja: 'ミニゲーム「ノット３０」解放' },
+        { id: '3', level: 1, type: 1, permitIndex: 3, name_en: 'Minigame: Watermelon Smash', name_ja: 'ミニゲーム「スイカ割り」解放' },
+        { id: '4', level: 3, type: 1, permitIndex: 5, name_en: 'Minigame: Darts', name_ja: 'ミニゲーム「ダーツ」解放' },
+        { id: '34', level: 4, type: 5, flagIndex: 34, name_en: 'Pose: Fight!', name_ja: 'ポーズ「ファイト！」追加' },
+        { id: '7', level: 5, type: 2, flagIndex: 7, name_en: 'Roulette: Tension ↑↑ Added', name_ja: 'ルーレット「テンション↑↑」追加' },
+        { id: '18', level: 6, type: 5, flagIndex: 17, name_en: 'Pose: Smiling Peace!', name_ja: 'ポーズ「にこにこピース！」追加' },
+        { id: '14', level: 7, type: 4, flagIndex: 14, name_en: 'Dialogue Heart Bonus', name_ja: '会話選択肢でハート増加' },
+        { id: '35', level: 8, type: 5, flagIndex: 35, name_en: 'Pose: Clapping Hands!', name_ja: 'ポーズ「パチパチパチ！」追加' },
+        { id: '19', level: 9, type: 5, flagIndex: 18, name_en: 'Pose: Twirl Around♪', name_ja: 'ポーズ「クルっとね♪」追加' },
+        { id: '11', level: 10, type: 3, flagIndex: 11, name_en: "Present: Girlfriend's Clothes", name_ja: 'プレゼント「彼女の服」追加' },
+        { id: '20', level: 11, type: 5, flagIndex: 19, name_en: 'Pose: Like a Model', name_ja: 'ポーズ「モデルみたい」追加' },
+        { id: '5', level: 12, type: 1, permitIndex: 6, name_en: 'Minigame: Soap Bubbles', name_ja: 'ミニゲーム「しゃぼん玉」解放' },
+        { id: '36', level: 13, type: 5, flagIndex: 36, name_en: 'Pose: Here You Go!', name_ja: 'ポーズ「ど～ぞ！」追加' },
+        { id: '21', level: 14, type: 5, flagIndex: 20, name_en: 'Pose: Spin More', name_ja: 'ポーズ「もっとクルクル」追加' },
+        { id: '12', level: 15, type: 3, flagIndex: 12, name_en: 'Present: Fashion Show Costumes', name_ja: 'プレゼント「ファッションショー用の衣装」追加' },
+        { id: '22', level: 16, type: 5, flagIndex: 21, name_en: 'Pose: Shaking Dance', name_ja: 'ポーズ「ふりふりダンス」追加' },
+        { id: '6', level: 17, type: 1, permitIndex: 8, name_en: 'Minigame: Spit (Speed)', name_ja: 'ミニゲーム「スピード」解放' },
+        { id: '37', level: 18, type: 5, flagIndex: 37, name_en: 'Pose: How Is It!?', name_ja: 'ポーズ「どうかなぁ！？」追加' },
+        { id: '23', level: 19, type: 5, flagIndex: 22, name_en: 'Pose: Striking a Pose', name_ja: 'ポーズ「♂キメポーズ」追加' },
+        { id: '38', level: 20, type: 5, flagIndex: 38, name_en: 'Pose: Hurrying You Up!', name_ja: 'ポーズ「せかしちゃうぞ！」追加' },
+        { id: '39', level: 21, type: 5, flagIndex: 39, name_en: 'Pose: Motivated↑↑ UP', name_ja: 'ポーズ「やる気↑↑UP」追加' },
+        { id: '24', level: 22, type: 5, flagIndex: 23, name_en: 'Pose: Bye-Bye Step', name_ja: 'ポーズ「Bye-Byeステップ」追加' },
+        { id: '40', level: 23, type: 5, flagIndex: 40, name_en: 'Pose: Waiting In Vain', name_ja: 'ポーズ「まちぼうけ」追加' },
+        { id: '25', level: 24, type: 5, flagIndex: 24, name_en: 'Pose: Begging My Honey', name_ja: 'ポーズ「おねだりマイハニー」追加' },
+        { id: '15', level: 25, type: 4, flagIndex: 15, name_en: 'Base Tension Increased to 2', name_ja: 'テンションの基本数が２に' },
+        { id: '17', level: 26, type: 4, flagIndex: 33, name_en: 'Casual Fashion Show Unlocked', name_ja: '「くつろぎファッションショー」解放' },
+        { id: '41', level: 27, type: 5, flagIndex: 41, name_en: 'Pose: Exciting Walk♪', name_ja: 'ポーズ「ウキウキWALK♪」追加' },
+        { id: '8', level: 28, type: 2, flagIndex: 8, name_en: 'Roulette: TRIPLE Added', name_ja: 'ルーレット「TRIPLE」追加' },
+        { id: '26', level: 29, type: 5, flagIndex: 25, name_en: 'Pose: Nyanko Nya', name_ja: 'ポーズ「にゃんこにゃ」追加' },
+        { id: '27', level: 30, type: 5, flagIndex: 26, name_en: 'Pose: Roar♪', name_ja: 'ポーズ「がおー♪」追加' },
+        { id: '28', level: 31, type: 5, flagIndex: 27, name_en: 'Pose: Hopping Jump', name_ja: 'ポーズ「ぴょんぴょんお」追加' },
+        { id: '42', level: 32, type: 5, flagIndex: 42, name_en: 'Pose: Yay!', name_ja: 'ポーズ「いえ～い！」追加' },
+        { id: '29', level: 33, type: 5, flagIndex: 28, name_en: 'Pose: Folk Dance Move', name_ja: 'ポーズ「フォークダンスのアレ」追加' },
+        { id: '43', level: 34, type: 5, flagIndex: 43, name_en: 'Pose: Thrilling♪', name_ja: 'ポーズ「ワクワク♪」追加' },
+        { id: '9', level: 35, type: 2, flagIndex: 9, name_en: 'Roulette: Tension ↑↑↑ Added', name_ja: 'ルーレット「テンション↑↑↑」追加' },
+        { id: '44', level: 36, type: 5, flagIndex: 44, name_en: 'Pose: Humming♪', name_ja: 'ポーズ「はなうた♪」追加' },
+        { id: '30', level: 37, type: 5, flagIndex: 29, name_en: 'Pose: LOVE Turn', name_ja: 'ポーズ「LOVEターン」追加' },
+        { id: '45', level: 38, type: 5, flagIndex: 45, name_en: 'Pose: Wandering Around♪', name_ja: 'ポーズ「ウロウロ♪」追加' },
+        { id: '46', level: 39, type: 5, flagIndex: 46, name_en: 'Pose: ZZZ…', name_ja: 'ポーズ「ZZZ…」追加' },
+        { id: '31', level: 40, type: 5, flagIndex: 30, name_en: 'Pose: Stretch', name_ja: 'ポーズ「ストレッチ」追加' },
+        { id: '47', level: 41, type: 5, flagIndex: 47, name_en: 'Pose: One Big Applause!', name_ja: 'ポーズ「拍手イッパツ！」追加' },
+        { id: '10', level: 42, type: 2, flagIndex: 10, name_en: 'Roulette: ALL BOX Added', name_ja: 'ルーレット「ALL　BOX」追加' },
+        { id: '48', level: 43, type: 5, flagIndex: 48, name_en: 'Pose: BOOOOM!!', name_ja: 'ポーズ「どーーーん！！」追加' },
+        { id: '32', level: 44, type: 5, flagIndex: 31, name_en: 'Pose: Grinning Smile', name_ja: 'ポーズ「にーこにこ」追加' },
+        { id: '49', level: 45, type: 5, flagIndex: 49, name_en: 'Pose: More Yay!', name_ja: 'ポーズ「もっといえ～い！」追加' },
+        { id: '50', level: 46, type: 5, flagIndex: 50, name_en: 'Pose: Falling Down~!!', name_ja: 'ポーズ「おちるぅ～っっ！」追加' },
+        { id: '51', level: 47, type: 5, flagIndex: 51, name_en: 'Pose: Tumbling Down~!!', name_ja: 'ポーズ「たおれるぅ～っっ！」追加' },
+        { id: '33', level: 48, type: 5, flagIndex: 32, name_en: 'Pose: Ossu!', name_ja: 'ポーズ「オッス！」追加' },
+        { id: '52', level: 49, type: 5, flagIndex: 52, name_en: 'Pose: Stumbling~!!', name_ja: 'ポーズ「よろけるぅ～っっ！」追加' },
+        { id: '16', level: 50, type: 4, flagIndex: 16, name_en: 'Base Tension Increased to 3', name_ja: 'テンションの基本数が３に' },
+        { id: '53', level: 50, type: 5, flagIndex: 53, name_en: 'Pose: Ahhh~n', name_ja: 'ポーズ「あ～～～ん」追加' }
     ];
-    const isMinigameUnlocked = (unlock) => isMinigamePermitUnlocked(unlock.index);
+
+    const isReleaseFlagUnlocked = (unlock) => {
+        if (unlock.type === 1 && unlock.permitIndex !== undefined) {
+            return (minigamePermitFlags & (1 << unlock.permitIndex)) !== 0;
+        }
+        if (unlock.flagIndex !== undefined) {
+            const byteOffset = 290 + Math.floor(unlock.flagIndex / 8);
+            const bitPos = 7 - (unlock.flagIndex % 8);
+            const byteVal = lpac01Bindata[byteOffset] ?? 0;
+            return (byteVal & (1 << bitPos)) !== 0;
+        }
+        return false;
+    };
 
     const firstPerson = lpac01Bindata[354] ?? 0;
     const callsHer = lpac01Bindata[355] ?? 0;
@@ -201,13 +262,20 @@ div
                         p.help Maximum Date Level Exp: 150.
 
                     .field
-                        label.label Minigame Unlock Status
-                        each unlock in minigameUnlocks
-                            .control
-                                label.checkbox
-                                    input.minigame-unlock(type="checkbox" id='unlock-' + unlock.id data-unlock-level=unlock.level checked=isMinigameUnlocked(unlock) disabled)
-                                    |  #{unlock.name} (Date Level #{unlock.level})
-                        p.help The unlock status of Darts, Soap Bubbles and Spit is automatically synchronized with changes to your Date Level.
+                        label.label Release Unlock Status (全解禁ステータス)
+                        .box.has-background-white-ter.p-3(style="max-height: 380px; overflow-y: auto; border: 1px solid #dbdbdb; border-radius: 6px;")
+                            .columns.is-multiline.is-variable.is-1
+                                each unlock in releaseUnlocks
+                                    .column.is-half(style="padding: 4px 8px;")
+                                        .field.is-narrow(style="margin-bottom: 0;")
+                                            .control(style="display: flex; align-items: center;")
+                                                label.radio(style="display: flex; align-items: center; cursor: default; width: 100%;")
+                                                    input.release-unlock(type="radio" id='unlock-' + unlock.id name='unlock_status_' + unlock.id data-unlock-level=unlock.level checked=isReleaseFlagUnlocked(unlock) disabled style="margin-right: 8px; flex-shrink: 0;")
+                                                    span.tag.is-info.is-light.is-small(style="margin-right: 8px; min-width: 48px; text-align: center; flex-shrink: 0;") Lv.#{unlock.level}
+                                                    span.is-size-7(style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" title=unlock.name_en + ' (' + unlock.name_ja + ')')
+                                                        strong #{unlock.name_en}
+                                                        span.has-text-grey  (#{unlock.name_ja})
+                        p.help All 52 release unlock flags (Minigames, Fashion Show Poses, Mystery Roulette Additions, Presents, Base Tension Increase, Casual Sitting Fashion Show) are automatically synchronized with changes to your Date Level.
 
                     .field
                         label.label Minigame Levels
@@ -218,7 +286,7 @@ div
                                 .column.is-half
                                     label.label.is-small= minigameLabel
                                     .control
-                                        input.input.minigame-level(type="number" id=minigameId min="1" max="50" data-slot=index value=bindataLevel(44 + index))
+                                        input.input.minigame-level(type="number" id=minigameId min="1" max="99" data-slot=index value=bindataLevel(44 + index))
                     .field
                         label.label Costume Unlock Status
                         .control
