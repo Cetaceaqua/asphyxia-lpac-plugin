@@ -33,9 +33,29 @@ $(document).ready(function () {
       String.fromCharCode(character.charCodeAt(0) + 0xfee0)
     );
 
-  $("#fullwidth-name-button").on("click", function () {
+  let simpToKanjiMap = {};
+  fetch("static/data/simp_to_kanji.json")
+    .then((response) => (response.ok ? response.json() : {}))
+    .then((data) => {
+      simpToKanjiMap = data;
+    })
+    .catch(() => {});
+
+  $("#fullwidth-name-button").on("click", function (e) {
+    e.preventDefault();
     const nameInput = $("#name");
     nameInput.val(toFullWidth(String(nameInput.val() || "")));
+  });
+
+  $("#kanji-name-button").on("click", function (e) {
+    e.preventDefault();
+    const nameInput = $("#name");
+    const currentVal = String(nameInput.val() || "");
+    let converted = "";
+    for (const char of currentVal) {
+      converted += simpToKanjiMap[char] || char;
+    }
+    nameInput.val(converted);
   });
 
   const birthMonth = $("#birth-month").val();
