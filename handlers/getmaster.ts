@@ -3,12 +3,58 @@ function encodeMasterString(rawText: string): { strdata1: string; strdata2: stri
     return { strdata1: "", strdata2: "" };
   }
 
-  const rawBuf = Buffer.from(rawText, "utf-8");
-  const MAX_CHUNK_BYTES = 384;
-  const safeBuf = rawBuf.subarray(0, MAX_CHUNK_BYTES * 2);
+  const encoding = (U.GetConfig("announcement_encoding") || "Shift-JIS").toUpperCase();
+  const isUtf8 = encoding === "UTF-8";
 
-  const chunk1 = safeBuf.subarray(0, MAX_CHUNK_BYTES);
-  const chunk2 = safeBuf.subarray(MAX_CHUNK_BYTES);
+  const rawBuf = isUtf8
+    ? Buffer.from(rawText, "utf-8")
+    : U.EncodeString(rawText, "shift_jis");
+
+  const MAX_CHUNK_BYTES = 384;
+
+  if (rawBuf.length <= MAX_CHUNK_BYTES) {
+    return {
+      strdata1: rawBuf.toString("base64"),
+      strdata2: "",
+    };
+  }
+
+  const getCharLen = (buf: Buffer, idx: number): number => {
+    if (isUtf8) {
+      const b = buf[idx];
+      if ((b & 0x80) === 0) return 1;
+      if ((b & 0xe0) === 0xc0) return 2;
+      if ((b & 0xf0) === 0xe0) return 3;
+      if ((b & 0xf8) === 0xf0) return 4;
+      return 1;
+    } else {
+      const b = buf[idx];
+      const isLead = (b >= 0x81 && b <= 0x9f) || (b >= 0xe0 && b <= 0xfc);
+      return isLead ? 2 : 1;
+    }
+  };
+
+  let splitIndex = 0;
+  let i = 0;
+  while (i < rawBuf.length) {
+    const clen = getCharLen(rawBuf, i);
+    if (i + clen > MAX_CHUNK_BYTES) break;
+    i += clen;
+    splitIndex = i;
+  }
+
+  const chunk1 = rawBuf.subarray(0, splitIndex);
+
+  let chunk2End = splitIndex;
+  let j = splitIndex;
+  while (j < rawBuf.length) {
+    const clen = getCharLen(rawBuf, j);
+    if (j - splitIndex + clen > MAX_CHUNK_BYTES) break;
+    j += clen;
+    chunk2End = j;
+  }
+
+  const chunk2 = rawBuf.subarray(splitIndex, chunk2End);
 
   return {
     strdata1: chunk1.toString("base64"),

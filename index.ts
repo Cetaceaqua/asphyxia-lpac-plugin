@@ -64,6 +64,14 @@ export function register() {
       "DEMOCOMMERCIAL,demoloop_cm_006;DRESSOPEN,7;DATEPLUSNORMA,3,8,12;DATELVUPSCL,50;MGLVUPSCL,50;SITFSPROB,50;",
   });
 
+  R.Config("announcement_encoding", {
+    name: "Announcement Encoding",
+    desc: "Encoding format for announcements. (system.getmaster)",
+    type: "string",
+    options: ["Shift-JIS", "UTF-8"],
+    default: "Shift-JIS",
+  });
+
   R.Config("announcement_text_0", {
     name: "KONAMI Announcement 1",
     desc: "Text returned for the first KONAMI announcement page. Leave blank to disable. (KONAMI_0)",
