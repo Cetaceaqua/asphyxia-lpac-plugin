@@ -2,9 +2,11 @@
 
 **Plugin Version**: 1.0.0
 
-**Asphyxia CORE Version**: [1.60b](https://github.com/asphyxia-core/core/releases/tag/v1.60b)
+**Asphyxia CORE Version**: [v1.70b](https://github.com/asphyxia-core/core/releases/tag/v1.70b)
 
-**Note**: Use latest spice2x, newer than [25-05-09](https://github.com/spice2x/spice2x.github.io/releases/tag/25-05-09)
+**Supported Version**: KLP-2012100100
+
+**Note**: Use [latest](https://github.com/spice2x/spice2x.github.io/releases/latest) spice2x, newer than [25-05-09](https://github.com/spice2x/spice2x.github.io/releases/tag/25-05-09)
 
 ## Credits
 
